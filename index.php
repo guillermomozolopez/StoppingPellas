@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>hola chicosk2</h1>
+<h1>hola chicosk2</h1>
+    <p>hola soy sergio y esta es mi rama
+    </p>
 </body>
 </html>
