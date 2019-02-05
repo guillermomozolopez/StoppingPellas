@@ -14,9 +14,15 @@
             Log-in
         </h2>
         <p>
-            <form action="./validar.php" method="get">
+            <form action="./validar.php" method="post">
                 <table>
                     <tr>
+                        <?php
+                        if($_GET['validacion']=="false"){
+                            echo ""
+                        }
+                        
+                        ?>
                         <td>Usuario</td>
                         <td><input type="text" name="usuario" id=""></td>
                     </tr>
