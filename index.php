@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Ubuntu" />
     <link rel="stylesheet" type="text/css" href="./style.css">
     <title>Document</title>
 </head>
@@ -22,17 +23,17 @@
 
                             if($_GET['validacion']=="false"){
                                 ?>
-                                <p class="error">Usuairo o contraseña incorrectos</p> 
+                                <p class="error">Usuario o contraseña incorrectos</p> 
                                 <?php
                             } 
         
                         ?>
                         <td>Usuario</td>
-                        <td><input type="text" name="usuario" id=""></td>
+                        <td><input type="text" name="usuario"></td>
                     </tr>
                     <tr>
                         <td>Contraseña</td>
-                        <td><input type="password" name="contra" id=""></td>
+                        <td><input type="password" name="contra"></td>
                     </tr>
                     <tr>
                         <td></td>
