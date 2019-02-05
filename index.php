@@ -18,10 +18,14 @@
                 <table>
                     <tr>
                         <?php
-                        if($_GET['validacion']=="false"){
-                            echo ""
-                        }
-                        
+                        error_reporting(E_ERROR | E_PARSE);
+
+                            if($_GET['validacion']=="false"){
+                                ?>
+                                <p class="error">Usuairo o contraseña incorrectos</p> 
+                                <?php
+                            } 
+        
                         ?>
                         <td>Usuario</td>
                         <td><input type="text" name="usuario" id=""></td>
