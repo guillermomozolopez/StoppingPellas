@@ -7,8 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-<h1>hola chicos</h1>
-    <p>hola soy sergio y esta es mi ramahdhdhgg
-    </p>
+<h1>Stopping-Pellas</h1>
+    <div>
+        <h2>
+            Log-in
+        </h2>
+        <p>
+            <table>
+                <tr>
+                    <td>Usuario</td>
+                    <td><input type="text" name="usuario" id=""></td>
+                </tr>
+                <tr>
+                    <td>Contraseña</td>
+                    <td><input type="password" name="contra" id=""></td>
+                </tr>
+            </table>
+        </p>
+    </div>
 </body>
 </html>
