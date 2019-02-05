@@ -23,3 +23,22 @@ align-items: center;
     border: 5px solid #003840;
     border-radius: 14px;
 }
+tbody{
+    display: flex;
+    flex-wrap: wrap;
+    height: 30vw;
+    align-items: center;
+}
+tr{
+    display: flex;
+    flex-direction: column;
+}
+td{
+    padding: 0;
+}
+body > div > form > table > tbody > tr:nth-child(1),body > div > form > table > tbody > tr:nth-child(2){
+flex: 0 0 45%;
+}
+body > div > form > table > tbody > tr:nth-child(3){
+    flex: 0 0 10%;
+    }
