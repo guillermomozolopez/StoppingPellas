@@ -1,6 +1,4 @@
-<?php
-    
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,8 +9,11 @@
     <title>Document</title>
 </head>
 <body>
+    <?php
+    require "partials/header.php"
+    ?>
     <h1>Please Login or SignUp</h1>
     <a href="login.php">Login</a>
-    <a href="signup.php">Signup</a>
+    <a href="singup.php">Signup</a>
 </body>
 </html>
