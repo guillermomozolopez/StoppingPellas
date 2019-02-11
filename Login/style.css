@@ -1,7 +1,9 @@
+/*colores: #261822 #40152A #731630 #CC1F2D #FF5233*/
+
 *{
     margin: 0;
     box-sizing: border-box;
-    font-family: Ubuntu; 
+    font-family: Ubuntu;  
 }
 html,body{
     height: 100%;
