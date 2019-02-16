@@ -1,45 +1,10 @@
 <?php
-$error = '';
-//Validacion envio de datos con campos vacios
-if (isset($_POST['send'])) {
-    if (empty($_POST['dni']) && empty($_POST['password'])) {
-        $error = "Dni y contraseña vacios";
-    } else if (empty($_POST['dni'])) {
-        $error = "Dni vacio";
-    } else if (empty($_POST['password'])) {
-        $error = "Contraseña vacia";
-    } else {
-        //validacion envio de datos correcta
-        require "./clase_login.php";
-        $objetoLogin = new Login();
-        $existeUsuario = $objetoLogin->existeUsuario($_POST['dni'], $_POST['password']);
-        
-        //si existe el usuario
-        if ($existeUsuario) {
-            $dni = $_POST['dni'];
-            //si ese usuario existente es profesor
-            $esProfesor = $objetoLogin-> esProfe($dni);
-            $esAlumno = $objetoLogin->esAlumno($dni);
-            if($esProfesor){
-                //modificar la pagina cuando se merge-----------------------------------------------------------------------
-                header("Location: ../profesoresPHP/pantallaProfesores.php?dni=".urlencode($dni)); 
-                exit;
-            }else if($esAlumno){
-                // ////modificar la pagina cuando se merge-----------------------------------------------------------------------
-                header("Location: ../alumnosPHP/pantallaAlumnos.php?dni=".urlencode($dni)); 
-                exit;
-            }
-        } else {
-            //si no existe redireccionamos a la misma pagina
-            $error = "Usuario Incorrecto";
-            
-        }
-
-    }
-
-} else {
-    //validacion incorrect de envio de datos
+session_start();
+if (isset($_SESSION['user'])) {
+    header("Location:../profesoresPHP/pantallaProfesores.php");
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,27 +18,24 @@ if (isset($_POST['send'])) {
 
 </head>
 <body>
-    <?php
-require "./headerLogin.php";
-?>
 
-    <form action="login.php" method="POST">
-    
+    <form action="validar.php" method="POST">
+
     <?php
-    if (!empty($error)): ?>
+if (!empty($_GET['error'])): ?>
     <div class="error" >
-    <p><?=$error?></p>
+    <p><?=$_GET['error']?></p>
     </div>
     <?php endif;?>
 
- 
+
     <input type="text" name="dni" placeholder="Introduzca Dni">
     <input type="password" name="password" placeholder="Introduzca contraseña">
     <input type="submit" value="Entrar" name="send">
     <span><label><input type="checkbox" name="recordar">Recordar</label><a href="singup.php">Olvidaste la contraseña</a></span>
     </form>
 
-    
-    
+
+
 </body>
 </html>

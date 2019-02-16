@@ -1,13 +1,14 @@
 <?php
-    require "./claseProfesor.php";
+session_start();
+require "./claseProfesor.php";
 
-    $profesor = new Profesor();
+$profesor = new Profesor();
 
-    $dni = $_GET['dni'];
+$dni = $_GET['dni'];
 
-    $listaAsignaturas = $profesor->listarAsignaturas($dni);
+$listaAsignaturas = $profesor->listarAsignaturas($_SESSION['user']);
 
-    /*error_reporting(E_ERROR | E_PARSE);*/   
+/*error_reporting(E_ERROR | E_PARSE);*/
 
 ?>
 
@@ -25,48 +26,47 @@
     </style>
 </head>
 <body>
+<!-- header -->
+<div id="logoHeader">
+<p>Aqui va el logo guillermo</p>
+</div>
+
+<?php
+echo "<a href=''>Mi perfil</a>";
+require "../Login/headerLogin.php";
+?>
+
     <h1>Gestor de faltas</h1>
     <form action="pantallaProfesores.php" method="post">
         <select name="selectAsignaturas">
             <?php
-                foreach ($listaAsignaturas as $asignatura) {
-                    echo "<option value=".$asignatura['cod_asignatura'].">".$asignatura['nombre'];
-                }
-            ?>
+            //cargamos las asignaturas al select
+foreach ($listaAsignaturas as $asignatura) {
+    echo "<option value=" . $asignatura['cod_asignatura'] . ">" . $asignatura['nombre'];
+}
+?>
         </select>
-        <input type="submit" name="btnBuscar" value="Buscar alumnos">        
-    </form>   
+        <input type="submit" name="btnBuscar" value="Buscar alumnos">
+    </form>
 
     <?php
-        if(isset($_POST['btnBuscar'])) {
-            $cod_asig = $_POST['selectAsignaturas'];
-            $listaAlumnos = $profesor->listarAlumnos($_POST['selectAsignaturas']);
-            echo "<form action='guardarFaltas.php?asignatura=".urlencode($cod_asig)."&dniProfe=".urlencode($dni)."' name='faltas' method='post'>";
-            echo "<table>";
-            echo "<tr><td>APELLIDOS</td><td>NOMBRE</td><td>DNI ALUMNO</td><td>FALTA</td></tr>";
-            foreach ($listaAlumnos as $alumno) {
-                echo "<tr><td>".$alumno['Apellido1']." ".$alumno['Apellido2']."</td><td>".$alumno['Nombre']."</td><td>".$alumno['dni_alumno']."</td><td><input type='checkbox' name='alumnos[]' value='".$alumno['dni_alumno']."'/></td></tr>";
-            }
-            echo "</table>";
-            echo "<input type='submit' name='ponerFaltas' value='Guardar faltas'>";
-                   
+if (isset($_POST['btnBuscar'])) {
+    $cod_asig = $_POST['selectAsignaturas'];
+    $listaAlumnos = $profesor->listarAlumnos($_POST['selectAsignaturas']);
+    echo "<form action='guardarFaltas.php?asignatura=" . urlencode($cod_asig) . "' name='faltas' method='post'>";
+    echo "<table>";
+    echo "<tr><td>APELLIDOS</td><td>NOMBRE</td><td>DNI ALUMNO</td><td>FALTA</td></tr>";
+    foreach ($listaAlumnos as $alumno) {
+        echo "<tr><td>" . $alumno['Apellido1'] . " " . $alumno['Apellido2'] . "</td><td>" . $alumno['Nombre'] . "</td><td>" . $alumno['dni_alumno'] . "</td><td><input type='checkbox' name='alumnos[]' value='" . $alumno['dni_alumno'] . "'/></td></tr>";
+    }
+    echo "</table>";
+    echo "<input type='submit' name='ponerFaltas' value='Guardar faltas'>";
 
-            /*$alumnosFaltas = array();
-            
-            if(isset($_POST['faltas'])) {
-                $alumnosFaltas = $_POST['alumnos'];
-                echo $alumnosFaltas;
-                for ($i=0; $i < count($alumnosFaltas); $i++) { 
-                    echo $alumnosFaltas[$i];
-                    $fechaActual = date("Y-m-d");
-                    $horaActual = date("H:i:s");
-                    $fechaActual = date("Y-m-d H:i:s", strtotime($fechaActual . $horaActual));
-                    $faltasGuardadas = $profesor->ponerFalta($_POST['selectAsignaturas'], $dni, $alumnosFaltas[$i], $fechaActual);
-                } 
-            } */
-            echo "</form>";
-        }
-    ?>
+    echo "</form>";
+}
+echo "<a href='../Login/cerrarSesion.php'>Cerrar Sesion</a>";
+
+?>
 
 </body>
 </html>
