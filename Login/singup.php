@@ -28,8 +28,7 @@ if(!empty($_POST['email']) && !empty($_POST['password'])){
     <title>Document</title>
 </head>
 <body>
-    <?php require "partials/header.php"?>
-    <!-- all process for singup -->
+  
    
     <h1>SignUp</h1>
     <span>or <a href="login.php">Login</a></span>
