@@ -12,6 +12,7 @@
     <?php
     require "./headerLogin.php";
     ?>
+    
     <form action="login.php" method="POST">
     <input type="text" name="email" placeholder="Introduzca Dni">
     <input type="password" name="password" placeholder="Introduzca contraseña">
