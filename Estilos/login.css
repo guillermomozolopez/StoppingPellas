@@ -1,0 +1,83 @@
+/*colores #330136, #5E1742, #962E40, #C9463D, #FF5E35*/
+html, body{
+    background: #962E40;
+    font-family: 'Ubuntu', sans-serif !important;
+    height: 100%;
+    margin: 0;
+}
+body{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 13vw min-content min-content;
+    height: 100%;
+
+}
+form{
+    display: flex;
+    padding: 43px;
+    background: rgba(199, 100, 117, 0.5);
+    border-radius: 13px;
+    flex-wrap: wrap;
+    width: 17vw;
+    min-width: 186px;
+    grid-row: 3/4;
+    grid-column: 2/3;
+    margin: 0 auto;
+}
+form>div, form>input{
+    flex: 0 0 100%;
+}
+input[placeholder]{
+    font-family: 'Ubuntu', sans-serif !important;
+}
+input[type=password],input[type=text], input[type=submit]{
+    margin: 15px 0;
+    height: 35px;
+    border:0px;
+}
+
+input[type=submit]{
+    background: #330136;
+    color: white;
+}
+input[type=submit]:hover{
+    background: #68066e;
+}
+.error{
+    text-align: center;
+    padding: 23px 0px;
+    border-radius: 8px;
+    background: #3301365e;
+    color: white;
+}
+form>span{
+    display: flex;
+    flex-direction: row;
+    flex: 0 0 100%;
+    justify-content: space-between;
+}
+form>span>a{
+    color: white;
+    text-decoration: none;
+}
+body > form > span > label{
+    color:white;
+}
+#logo{
+    background: url(https://www.tuenti.es/blog/wp-content/uploads/2018/03/significado-logos-famosos-chanel.png);
+    height: 169px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 219px;
+    grid-row: 2/3;
+    grid-column: 2/3;
+}
+
+  .error{
+    -webkit-animation: tiembla 0.15s 4;
+  }
+  @-webkit-keyframes tiembla{
+    0%  { -webkit-transform:rotateZ(-5deg); }
+    50% { -webkit-transform:rotateZ( 0deg) scale(.8); }
+    100%{ -webkit-transform:rotateZ( 5deg); }
+  }
