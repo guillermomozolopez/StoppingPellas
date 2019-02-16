@@ -17,7 +17,7 @@ if (isset($_POST['send'])) {
         //si existe el usuario
         if ($existeUsuario) {
             $dni = $_POST['dni'];
-
+            
         } else {
             //si no existe redireccionamos a la misma pagina
             $error = "Usuario Incorrecto";

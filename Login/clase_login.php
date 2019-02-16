@@ -19,9 +19,15 @@ class Login extends Conexion
         return false;
         
     }
-    public function esProfe()
+    public function esProfe($dni)
     {
-        
+        $sql = "SELECT COUNT(*) as 'cont' from PROFESORES where DNI='$dni'";
+        $resultado = $this->conexion_db->query($sql);
+        $existe = $resultado->fetch_all(MYSQLI_ASSOC);
+        if($existe[0]['cont'] > 0){
+        return true;
+        }
+        return false;
     }
     public function esAlumno()
     {
