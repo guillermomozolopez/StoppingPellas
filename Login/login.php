@@ -47,13 +47,15 @@ require "./headerLogin.php";
 ?>
 
     <form action="login.php" method="POST">
-    <div class="error" >
+    
     <?php
     if (!empty($error)): ?>
+    <div class="error" >
     <p><?=$error?></p>
+    </div>
     <?php endif;?>
 
-    </div>
+ 
     <input type="text" name="dni" placeholder="Introduzca Dni">
     <input type="password" name="password" placeholder="Introduzca contraseña">
     <input type="submit" value="Entrar" name="send">
