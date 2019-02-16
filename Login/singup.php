@@ -31,7 +31,7 @@ if(!empty($_POST['email']) && !empty($_POST['password'])){
   
    
     <h1>SignUp</h1>
-    <span>or <a href="login.php">Login</a></span>
+    <span>or <a href="">Login</a></span>
    
     <form action="singup.php" method="POST">
     <input type="text" name="email" placeholder="Enter your mail">
