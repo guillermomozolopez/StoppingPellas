@@ -9,13 +9,14 @@
     
 </head>
 <body>
-
-    <h1>Login</h1>
-    <span>or <a href="singup.php">SingUp</a></span>
+    <?php
+    require "./headerLogin.php";
+    ?>
     <form action="login.php" method="POST">
-    <input type="text" name="email" placeholder="Enter your mail">
-    <input type="password" name="password" placeholder="Enter you password">
+    <input type="text" name="email" placeholder="Introduzca Dni">
+    <input type="password" name="password" placeholder="Introduzca contraseña">
     <input type="submit" value="Send">
+    <span><a href="singup.php">Olvidaste la contraseña</a></span> 
     </form>
 </body>
 </html>
