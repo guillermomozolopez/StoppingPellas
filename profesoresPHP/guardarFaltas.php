@@ -1,4 +1,5 @@
 <?php
+session_start();
     require "./claseProfesor.php";
 
     $profesor = new Profesor();
@@ -7,12 +8,11 @@
     for ($i=0; $i < count($alumnosFaltas); $i++) { 
         echo $alumnosFaltas[$i];
         $asig = $_GET['asignatura'];
-        $dniP = $_GET['dniProfe'];
         $fechaActual = date("Y-m-d");
         $horaActual = date("H:i:s");
         $fechaActual = date("Y-m-d H:i:s", strtotime($fechaActual . $horaActual));
-        $faltasGuardadas = $profesor->ponerFalta($asig, $alumnosFaltas[$i], $dniP,$fechaActual);
+        $faltasGuardadas = $profesor->ponerFalta($asig, $alumnosFaltas[$i], $_SESSION['user'],$fechaActual);
     } 
-
+    
     header("Location:pantallaProfesores.php");
 ?>

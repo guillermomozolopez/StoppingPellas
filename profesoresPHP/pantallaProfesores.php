@@ -1,11 +1,12 @@
 <?php
+session_start();
     require "./claseProfesor.php";
 
     $profesor = new Profesor();
 
     $dni = $_GET['dni'];
 
-    $listaAsignaturas = $profesor->listarAsignaturas($dni);
+    $listaAsignaturas = $profesor->listarAsignaturas($_SESSION['user']);
 
     /*error_reporting(E_ERROR | E_PARSE);*/   
 
@@ -41,7 +42,7 @@
         if(isset($_POST['btnBuscar'])) {
             $cod_asig = $_POST['selectAsignaturas'];
             $listaAlumnos = $profesor->listarAlumnos($_POST['selectAsignaturas']);
-            echo "<form action='guardarFaltas.php?asignatura=".urlencode($cod_asig)."&dniProfe=".urlencode($dni)."' name='faltas' method='post'>";
+            echo "<form action='guardarFaltas.php?asignatura=".urlencode($cod_asig)."' name='faltas' method='post'>";
             echo "<table>";
             echo "<tr><td>APELLIDOS</td><td>NOMBRE</td><td>DNI ALUMNO</td><td>FALTA</td></tr>";
             foreach ($listaAlumnos as $alumno) {
@@ -50,22 +51,11 @@
             echo "</table>";
             echo "<input type='submit' name='ponerFaltas' value='Guardar faltas'>";
                    
-
-            /*$alumnosFaltas = array();
-            
-            if(isset($_POST['faltas'])) {
-                $alumnosFaltas = $_POST['alumnos'];
-                echo $alumnosFaltas;
-                for ($i=0; $i < count($alumnosFaltas); $i++) { 
-                    echo $alumnosFaltas[$i];
-                    $fechaActual = date("Y-m-d");
-                    $horaActual = date("H:i:s");
-                    $fechaActual = date("Y-m-d H:i:s", strtotime($fechaActual . $horaActual));
-                    $faltasGuardadas = $profesor->ponerFalta($_POST['selectAsignaturas'], $dni, $alumnosFaltas[$i], $fechaActual);
-                } 
-            } */
             echo "</form>";
         }
+        echo "<a href='../Login/cerrarSesion.php'>Cerrar Sesion</a>";
+        
+        
     ?>
 
 </body>
