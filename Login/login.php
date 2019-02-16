@@ -17,7 +17,18 @@ if (isset($_POST['send'])) {
         //si existe el usuario
         if ($existeUsuario) {
             $dni = $_POST['dni'];
-            
+            //si ese usuario existente es profesor
+            $esProfesor = $objetoLogin-> esProfe($dni);
+            $esAlumno = $objetoLogin->esAlumno($dni);
+            if($esProfesor){
+                //modificar la pagina cuando se merge-----------------------------------------------------------------------
+                header("Location: ../profesoresPHP/pantallaProfesores.php?dni=".urlencode($dni)); 
+                exit;
+            }else if($esAlumno){
+                // ////modificar la pagina cuando se merge-----------------------------------------------------------------------
+                header("Location: ../alumnosPHP/pantallaAlumnos.php?dni=".urlencode($dni)); 
+                exit;
+            }
         } else {
             //si no existe redireccionamos a la misma pagina
             $error = "Usuario Incorrecto";
