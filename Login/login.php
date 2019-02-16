@@ -1,7 +1,7 @@
 <?php
 $error = '';
 //Validacion envio de datos con campos vacios
-if (isset($_POST['botonEnviar'])) {
+if (isset($_POST['send'])) {
     if (empty($_POST['dni']) && empty($_POST['password'])) {
         $error = "Dni y contraseña vacios";
     } else if (empty($_POST['dni'])) {
@@ -20,7 +20,8 @@ if (isset($_POST['botonEnviar'])) {
 
         } else {
             //si no existe redireccionamos a la misma pagina
-            header("Location:login.php");
+            $error = "Usuario Incorrecto";
+            
         }
 
     }
@@ -38,26 +39,28 @@ if (isset($_POST['botonEnviar'])) {
     <link rel="stylesheet" href="../Estilos/login.css">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <title>Login</title>
+
 </head>
 <body>
     <?php
 require "./headerLogin.php";
 ?>
-    
+
     <form action="login.php" method="POST">
-    <div class="error">
+    <div class="error" >
     <?php
-if (!empty($error)): ?>
+    if (!empty($error)): ?>
     <p><?=$error?></p>
     <?php endif;?>
+
     </div>
-    <input type="text" name="email" placeholder="Introduzca Dni">
+    <input type="text" name="dni" placeholder="Introduzca Dni">
     <input type="password" name="password" placeholder="Introduzca contraseña">
-    
-    <input type="submit" value="Send">
-    <span><label><input type="checkbox" name="recordar">Recordar</label><a href="singup.php">Olvidaste la contraseña</a></span> 
+    <input type="submit" value="Send" name="send">
+    <span><label><input type="checkbox" name="recordar">Recordar</label><a href="singup.php">Olvidaste la contraseña</a></span>
     </form>
 
-
+    
+    
 </body>
 </html>

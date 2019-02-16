@@ -50,6 +50,9 @@ input[type=submit]:hover{
     background: #3301365e;
     color: white;
 }
+.error>p{
+    color: white;
+}
 form>span{
     display: flex;
     flex-direction: row;
