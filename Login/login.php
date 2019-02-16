@@ -56,7 +56,7 @@ require "./headerLogin.php";
     </div>
     <input type="text" name="dni" placeholder="Introduzca Dni">
     <input type="password" name="password" placeholder="Introduzca contraseña">
-    <input type="submit" value="Send" name="send">
+    <input type="submit" value="Entrar" name="send">
     <span><label><input type="checkbox" name="recordar">Recordar</label><a href="singup.php">Olvidaste la contraseña</a></span>
     </form>
 
