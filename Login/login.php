@@ -13,7 +13,7 @@ if (isset($_POST['send'])) {
         require "./clase_login.php";
         $objetoLogin = new Login();
         $existeUsuario = $objetoLogin->existeUsuario($_POST['dni'], $_POST['password']);
-        echo $existeUsuario;
+        
         //si existe el usuario
         if ($existeUsuario) {
             $dni = $_POST['dni'];
