@@ -18,9 +18,6 @@ if (isset($_SESSION['user'])) {
 
 </head>
 <body>
-    <?php
-require "./headerLogin.php";
-?>
 
     <form action="validar.php" method="POST">
 
