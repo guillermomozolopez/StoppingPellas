@@ -3,6 +3,7 @@
  
 //Validacion envio de datos con campos vacios
 if (isset($_POST['send'])) {
+   
     if (empty($_POST['dni']) && empty($_POST['password'])) {
         $error = "Dni y contraseña vacios";
         header("Location:./login.php?error=".urlencode($error)."");
@@ -22,6 +23,9 @@ if (isset($_POST['send'])) {
 
         //si existe el usuario
         if ($existeUsuario) {
+            if(isset($_POST['recordar']) && !empty($_POST['recordar'])){
+                setcookie($_POST['dni'], $_POST['password'], time()+3600, "/" , "localhost"); 
+                }
             session_start();
             $_SESSION['rama']= "";
             $_SESSION['user'] = $_POST['dni'];

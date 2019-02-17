@@ -27,7 +27,6 @@ $listaAsignaturas = $alumno->listarAsignaturas($_SESSION['user']);
 <body>
 
 <?php
-
 // header
 require "../Login/headerLogin.php";
 ?>
