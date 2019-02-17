@@ -1,26 +1,30 @@
 /*colores #330136, #5E1742, #962E40, #C9463D, #FF5E35*/
 html, body{
-    background: #962E40;
+    background-image: url(../img/Chalk-board-wallpaper-hd.jpg);
     font-family: 'Ubuntu', sans-serif !important;
     height: 100%;
+    min-height: 636px;
     margin: 0;
+    background-repeat: no-repeat;
+    background-size: 100vw 100%;
+
 }
 body{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 13vw min-content min-content;
+    grid-template-rows: min-content min-content;
     height: 100%;
 
 }
 form{
     display: flex;
     padding: 43px;
-    background: rgba(199, 100, 117, 0.5);
+    background:rgba(98, 104, 110, 0.61);
     border-radius: 13px;
     flex-wrap: wrap;
     width: 17vw;
     min-width: 186px;
-    grid-row: 3/4;
+    grid-row: 2/3;
     grid-column: 2/3;
     margin: 0 auto;
 }
@@ -34,20 +38,21 @@ input[type=password],input[type=text], input[type=submit]{
     margin: 15px 0;
     height: 35px;
     border:0px;
+    border-radius: 4px;
 }
 
 input[type=submit]{
-    background: #330136;
+    background: black;
     color: white;
 }
 input[type=submit]:hover{
-    background: #68066e;
+    background: #bd3428;
 }
 .error{
     text-align: center;
     padding: 23px 0px;
     border-radius: 8px;
-    background: #3301365e;
+    background: #bd3428;
     color: white;
 }
 .error>p{
@@ -67,13 +72,13 @@ body > form > span > label{
     color:white;
 }
 #logo{
-    background: url(https://www.tuenti.es/blog/wp-content/uploads/2018/03/significado-logos-famosos-chanel.png);
-    height: 169px;
+    background: url(../img/stoppingpellas-logoCuadrado.png);
+    height: 218px;
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 219px;
-    grid-row: 2/3;
+    grid-row: 1/2;
     grid-column: 2/3;
+    background-size: 190px;
 }
 
   .error{
@@ -83,4 +88,7 @@ body > form > span > label{
     0%  { -webkit-transform:rotateZ(-5deg); }
     50% { -webkit-transform:rotateZ( 0deg) scale(.8); }
     100%{ -webkit-transform:rotateZ( 5deg); }
+  }
+  @media (max-height:750px){
+
   }
