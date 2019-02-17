@@ -24,7 +24,7 @@ if (isset($_SESSION['user'])) {
 
 </head>
 <body>
-
+    <div id="logo"></div>
     <form action="validar.php" method="POST">
 <!-- IMPRESION DE LOS POSIBLES MENSAJES DE ERROR -->
     <?php
