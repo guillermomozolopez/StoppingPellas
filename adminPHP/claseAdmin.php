@@ -23,19 +23,29 @@
             }
         }
 
-        public function listarFaltas($dni, $cod_asig) {
-            $sql = "SELECT ASIGNATURAS.NOMBRE AS asignatura, FALTAS.FECHA AS fecha FROM FALTAS INNER JOIN ASIGNATURAS ON FALTAS.COD_ASIGNATURA=ASIGNATURAS.COD_ASIGNATURA WHERE DNI_ALUMNO=\"$dni\" AND FALTAS.COD_ASIGNATURA=\"$cod_asig\"";
+        public function comprobarAlumno($dni) {
+            $sql = "SELECT COUNT(*) AS alumno FROM ALUMNOS WHERE DNI=\"$dni\"";
             $resultado = $this->conexion_db->query($sql);
-            $listaFaltas = $resultado->fetch_all(MYSQLI_ASSOC);
-            return $listaFaltas;
+            $esAlumno = $resultado->fetch_all(MYSQLI_ASSOC);
+            return $esProfe;
         }
 
-        public function listarTodas($dni) {
-            $sql = "SELECT ASIGNATURAS.NOMBRE AS asignatura, COUNT(*) AS faltas FROM FALTAS INNER JOIN ASIGNATURAS ON FALTAS.COD_ASIGNATURA=ASIGNATURAS.COD_ASIGNATURA WHERE DNI_ALUMNO=\"$dni\" GROUP BY FALTAS.COD_ASIGNATURA";
+        public function comprobarProfe() {
+            $sql = "SELECT COUNT(*) AS profe FROM PROFESORES WHERE DNI=\"$dni\"";
             $resultado = $this->conexion_db->query($sql);
-            $listaTodas = $resultado->fetch_all(MYSQLI_ASSOC);
-            return $listaTodas;
+            $esProfe = $resultado->fetch_all(MYSQLI_ASSOC);
+            return $esProfe;
         }
+
+        public function registrarProfe($dni, $nombre,  $ape1, $ape2, $fechaNac, $email, $tlf, $direccion) {
+            $sql = "INSERT INTO PROFESORES (DNI, NOMBRE, APELLIDO1, APELLIDO2, FECHANAC, EMAIL, TELEFONO, DIRECCION) VALUES (\"$dni\", \"$nombre\", \"$ape1\", \"$ape2\", \"$fechaNac\", \"$email\", \"$tlf\", \"$direccion\")";
+            if ($this->conexion_db->query($sql) === TRUE) {
+                echo "PROFESOR INSCRITO";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+        }
+
     }
 
 ?>

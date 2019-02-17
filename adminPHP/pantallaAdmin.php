@@ -73,7 +73,7 @@
             </tr>
             <tr>
                 <td>Fecha de nacimiento</td>
-                <td><input type="text" name="fechaNacPro" id="fechaNacPro"></td>
+                <td><input type="date" name="fechaNacPro" id="fechaNacPro"></td>
             </tr>
             <tr>
                 <td>E-Mail</td>
@@ -93,6 +93,26 @@
             </tr>
         </table>
     </form>
+    <?php
+        if(isset($_POST['registrarPro'])) {     
+            $existeDNI = $admin->comprobarDNI($_POST['dniPro']);       
+            $esProfe = $admin->comprobarProfe($_POST['dniPro']);
+            $esAlumno = $admin->comprobarAlumno($_POST['dniPro']);
+            if($existeDNI[0]['existe'] == 0) {
+                echo "Ese usuario no está registrado";
+            } else {
+                if($esProfe[0]['profe']) {
+                    echo "Ese usuario ya está inscrito como profesor";
+                } else {
+                    if ($esAlumno[0]['alumno']) {
+                        echo "Ese usuario ya está inscrito como alumno";
+                    } else {
+                        $profesor = $admin->registrarProfe($_POST['dniPro'], $_POST['nombrePro'], $_POST['ape1Pro'], $_POST['ape2Pro'], $_POST['fechaNacPro'], $_POST['emailPro'], $_POST['tlfPro'], $_POST['dirPro']);
+                    }
+                }
+            }
+        }
+    ?>
     <form action="" method="post">
         <h1>Registrar usuario como alumno</h1>
         <table>
