@@ -8,7 +8,7 @@
    
     $listaAsignaturas = $alumno->listarAsignaturas($dni);
 
-    /*error_reporting(E_ERROR | E_PARSE);*/   
+    
 
 ?>
 
