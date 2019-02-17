@@ -37,6 +37,9 @@
         </select>
         <input type="submit" name="btnMostrar" value="Mostrar Faltas">        
     </form>
+    <form action='pantallaAlumnos.php' method='post'>
+        <input type="submit" name="btnMostrarTodas" value="Mostrar Todas Faltas">    
+    </form>
     <?php
         if(isset($_POST['btnMostrar'])) {
             $listaFaltas = $alumno->listarFaltas($dni, $_POST['selectAsignaturas']);
@@ -44,6 +47,16 @@
             echo "<tr><td>ASIGNATURA</td><td>FECHA</td></tr>";
             foreach ($listaFaltas as $falta) {
                 echo "<tr><td>".$falta['asignatura']."</td><td>".$falta['fecha']."</td></tr>";
+            }
+            echo "</table>";
+        }
+
+        if(isset($_POST['btnMostrarTodas'])) {
+            $listaTodas = $alumno->listarTodas($dni);
+            echo "<table>";
+            echo "<tr><td>ASIGNATURA</td><td>FALTAS</td></tr>";
+            foreach ($listaTodas as $falta) {
+                echo "<tr><td>".$falta['asignatura']."</td><td>".$falta['faltas']."</td></tr>";
             }
             echo "</table>";
         }

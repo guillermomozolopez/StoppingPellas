@@ -20,6 +20,13 @@
             $listaFaltas = $resultado->fetch_all(MYSQLI_ASSOC);
             return $listaFaltas;
         }
+
+        public function listarTodas($dni) {
+            $sql = "SELECT ASIGNATURAS.NOMBRE AS asignatura, COUNT(*) AS faltas FROM FALTAS INNER JOIN ASIGNATURAS ON FALTAS.COD_ASIGNATURA=ASIGNATURAS.COD_ASIGNATURA WHERE DNI_ALUMNO=\"$dni\" GROUP BY FALTAS.COD_ASIGNATURA";
+            $resultado = $this->conexion_db->query($sql);
+            $listaTodas = $resultado->fetch_all(MYSQLI_ASSOC);
+            return $listaTodas;
+        }
     }
 
 ?>
