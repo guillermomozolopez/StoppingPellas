@@ -1,8 +1,9 @@
 <?php
-//empieza la sesion
-session_start();
+
+
 //si ya hay una sesion abierta no podremos ir al login
 if (isset($_SESSION['user'])) {
+    session_start();
     if ($_SESSION['rama'] == 0) {
         header("Location:../profesoresPHP/pantallaProfesores.php");
     } else {
@@ -38,7 +39,7 @@ if (!empty($_GET['error'])): ?>
     <input type="text" name="dni" placeholder="Introduzca Dni">
     <input type="password" name="password" placeholder="Introduzca contraseña">
     <input type="submit" value="Entrar" name="send">
-    <span><label><input type="checkbox" name="recordar">Recordar</label><a href="singup.php">Olvidaste la contraseña</a></span>
+    <span><label><input type="checkbox" name="recordar">Recordar</label><a href="olvideContraseña.php">Olvidaste la contraseña</a></span>
     </form>
 
 
