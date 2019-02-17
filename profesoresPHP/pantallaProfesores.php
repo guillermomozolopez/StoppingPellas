@@ -4,10 +4,7 @@ require "./claseProfesor.php";
 
 $profesor = new Profesor();
 
-
 $listaAsignaturas = $profesor->listarAsignaturas($_SESSION['user']);
-
-
 
 ?>
 
@@ -35,7 +32,7 @@ require "../Login/headerLogin.php";
     <form action="pantallaProfesores.php" method="post">
         <select name="selectAsignaturas">
             <?php
-            //cargamos las asignaturas al select
+//cargamos las asignaturas al select
 foreach ($listaAsignaturas as $asignatura) {
     echo "<option value=" . $asignatura['cod_asignatura'] . ">" . $asignatura['nombre'];
 }
@@ -59,7 +56,6 @@ if (isset($_POST['btnBuscar'])) {
 
     echo "</form>";
 }
-
 
 ?>
 
