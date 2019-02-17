@@ -62,6 +62,7 @@ foreach ($listaAsignaturas as $asignatura) {
             }
             echo "</table>";
         }
+        
     ?>
 
 </body>

@@ -1,9 +1,15 @@
 <?php
+//empieza la sesion
 session_start();
+//si ya hay una sesion abierta no podremos ir al login
 if (isset($_SESSION['user'])) {
-    header("Location:../profesoresPHP/pantallaProfesores.php");
-}
+    if ($_SESSION['rama'] == 0) {
+        header("Location:../profesoresPHP/pantallaProfesores.php");
+    } else {
+        header("Location:../alumnosPHP/pantallaAlumnos.php");
+    }
 
+}
 
 ?>
 <!DOCTYPE html>

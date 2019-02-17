@@ -23,6 +23,7 @@ if (isset($_POST['send'])) {
         //si existe el usuario
         if ($existeUsuario) {
             session_start();
+            $_SESSION['rama']= 0;
             $_SESSION['user'] = $_POST['dni'];
             $error = '';
             $dni = $_POST['dni'];
@@ -34,6 +35,7 @@ if (isset($_POST['send'])) {
                 header("Location: ../profesoresPHP/pantallaProfesores.php");
                 exit;
             } else if ($esAlumno) {
+                $_SESSION['rama']= 1;
                 // ////modificar la pagina cuando se merge-----------------------------------------------------------------------
                 header("Location: ../alumnosPHP/pantallaAlumnos.php");
                 exit;
