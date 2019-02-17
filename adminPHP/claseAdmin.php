@@ -54,6 +54,37 @@
                 echo "Error: " . $sql . "<br>" . $conexion_db->error;
             }
         }
+
+        public function listarAlumnos() {
+            $sql = "SELECT * FROM ALUMNOS ORDER BY APELLIDO1";
+            $resultado = $this->conexion_db->query($sql);
+            $listaAlumnos = $resultado->fetch_all(MYSQLI_ASSOC);
+            return $listaAlumnos;
+        }
+
+        public function listarAsignaturas() {
+            $sql = "SELECT * FROM ASIGNATURAS";
+            $resultado = $this->conexion_db->query($sql);
+            $listaAsignaturas = $resultado->fetch_all(MYSQLI_ASSOC);
+            return $listaAsignaturas;
+        }
+
+        public function estaMatriculado($cod_asig, $dni) {
+            $sql = "SELECT COUNT(*) AS 'matriculado' FROM ALUMNOS_ASIGNATURAS WHERE COD_ASIGNATURA = ".$cod_asig." AND DNI_ALUMNO = \"$dni\"";
+            $resultado = $this->conexion_db->query($sql);
+            $estaMatriculado = $resultado->fetch_all(MYSQLI_ASSOC);
+            return $estaMatriculado;
+        }
+
+        public function matricularAlumno($dni, $cod_asig) {
+            $sql = "INSERT INTO ALUMNOS_ASIGNATURAS (COD_ASIGNATURA, DNI_ALUMNO) VALUES (".$cod_asig.", \"$dni\")";
+            if ($this->conexion_db->query($sql) === TRUE) {
+                echo "ALUMNO MATRICULADO";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conexion_db->error;
+            }
+        }
+
     }
 
 ?>
