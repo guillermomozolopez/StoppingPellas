@@ -23,15 +23,17 @@ $listaAsignaturas = $alumno->listarAsignaturas($_SESSION['user']);
             border: solid 2px white;
         }
     </style>
+    
 </head>
-<body>
 
+<body>
+<div class="fondo"></div>
 <?php
 
 // header
 require "../Login/headerLogin.php";
 ?>
-<div>
+<div class="tablas">
     <h1>Gestor de faltas</h1>
     <div class="forms">
     <form action='pantallaAlumnos.php' method='post'>

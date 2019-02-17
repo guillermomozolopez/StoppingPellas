@@ -48,16 +48,16 @@ body > div:nth-child(2){
     font-size: 35px;
     color:white;
 }
-body > div:nth-child(2) > table > tbody > tr > td:nth-child(1){
+body > div:nth-child(3) > table > tbody > tr > td:nth-child(1){
     background: transparent;
     color: white;
     padding: 7px 0;
 }
-body > div:nth-child(2) > table > tbody > tr > td:nth-child(2){
+body > div:nth-child(3) > table > tbody > tr > td:nth-child(2){
     background: transparent;
     color: white;
 }
-body > div:nth-child(2) > table > tbody > tr:nth-child(1) > td{
+body > div:nth-child(3) > table > tbody > tr:nth-child(1) > td{
     background: transparent;
     padding: 24px 11px;
     border-radius: 5px 5px 0px 0px;
@@ -101,4 +101,20 @@ option{
     padding: 3px;
     border-radius: 6px
 }
+.fondo{
+    background-image: url(../img/Chalk-board-wallpaper-hd.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 100%;
+    grid-row: 1/3;
+    grid-column: 1/4;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
+.tablas{
+    grid-column: 2/3;
+}
+/*
+
+*/
