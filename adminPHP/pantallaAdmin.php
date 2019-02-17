@@ -29,5 +29,8 @@ require "../Login/headerLogin.php";
     <form action="inscribirAlumno.php">
         <input type="submit" value="Inscribir alumno">
     </form>
+    <form action="matricularAlumno.php">
+        <input type="submit" value="Matricular alumno">
+    </form>
 </body>
 </html>
