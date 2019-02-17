@@ -12,10 +12,10 @@ if (isset($_POST['enviar'])) {
         Hola $nombre,
 
         Pulse el siguiente enlace para recuperar:
-        
+
         http://localhost:8886/StoppingPellas2/Login/reseteoContrase%C3%B1a.php?email=".urlencode($_POST['email'])."";
         mail($_POST['email'], $asunto, $mensaje);
-        //header("Location:./reseteoContraseña.php?email=".urlencode($_POST['email'])."");
+        header("Location:../Login/login.php");
     }else if($existe == false){
         echo "Email incorrecto";
     }
