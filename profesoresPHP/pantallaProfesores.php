@@ -30,7 +30,7 @@ $listaAsignaturas = $profesor->listarAsignaturas($_SESSION['user']);
 <?php
 require "../Login/headerLogin.php";
 ?>
-
+<div class="contenido">
     <h1>Gestor de faltas</h1>
     <form action="pantallaProfesores.php" method="post">
         <select name="selectAsignaturas">
@@ -61,6 +61,6 @@ if (isset($_POST['btnBuscar'])) {
 }
 
 ?>
-
+</div>
 </body>
 </html>
