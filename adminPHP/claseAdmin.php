@@ -54,16 +54,6 @@
                 echo "Error: " . $sql . "<br>" . $conexion_db->error;
             }
         }
-
-        public function borrarUsuario($dni) {
-            $sql = "DELETE FROM USUARIO WHERE DNI = \"$dni\"";
-            if ($this->conexion_db->query($sql) === TRUE) {
-                echo "USUARIO BORRADO";
-            } else {
-                echo "Error: " . $sql . "<br>" . $conexion_db->error;
-            }
-        }
-
     }
 
 ?>
