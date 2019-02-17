@@ -28,7 +28,7 @@ $listaAsignaturas = $alumno->listarAsignaturas($_SESSION['user']);
 </div>
 
 <?php
-echo $_SESSION['user'];
+
 echo "<a href=''>Mi perfil</a>";
 require "../Login/headerLogin.php";
 ?>

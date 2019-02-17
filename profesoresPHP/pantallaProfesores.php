@@ -63,7 +63,7 @@ if (isset($_POST['btnBuscar'])) {
 
     echo "</form>";
 }
-echo "<a href='../Login/cerrarSesion.php'>Cerrar Sesion</a>";
+
 
 ?>
 
