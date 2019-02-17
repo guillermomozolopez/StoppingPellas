@@ -25,6 +25,16 @@ class Olvidar extends Conexion
         $existe = $resultado->fetch_all(MYSQLI_ASSOC);
         return $existe[0]['NOM'];
     }
+    public function cambiarPass($dni,$pass){
+        $sql = "UPDATE USUARIO SET CONTRASEÑA = '$pass' WHERE DNI='$dni'";
+        $execute = $this->conexion_db->query($sql);
+        return $execute;
+    }
+    public function obtenerDni($email){
+        $sql = "SELECT DNI AS 'NOM' FROM ALUMNOS WHERE EMAIL='$email'";
+        $resultado = $this->conexion_db->query($sql);
+        $existe = $resultado->fetch_all(MYSQLI_ASSOC);
+        return $existe[0]['NOM'];
+    }
    
-
 }

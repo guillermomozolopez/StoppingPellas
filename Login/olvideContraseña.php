@@ -5,6 +5,8 @@ if (isset($_POST['enviar'])) {
     $existe = $recuperar->existeUsuario($_POST['email']);
     
     if($existe){
+        session_start();
+        $_SESSION['email'] = $_POST['email'];
         $nombre = $recuperar->obtenerNombre($_POST['email']);
         echo "<div><p>Se ha mandado un correo para restablecer la contraseña</p><div>";
         $asunto = "StoppingPellas restablecer contraseña";
@@ -12,7 +14,7 @@ if (isset($_POST['enviar'])) {
         Hola $nombre,
 
         Pulse el siguiente enlace para recuperar:
-
+        
         http://localhost:8886/StoppingPellas2/Login/reseteoContrase%C3%B1a.php?email=".urlencode($_POST['email'])."";
         mail($_POST['email'], $asunto, $mensaje);
         header("Location:../Login/login.php");
