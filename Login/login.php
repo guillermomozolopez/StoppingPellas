@@ -26,7 +26,7 @@ if (isset($_SESSION['user'])) {
 <body>
 
     <form action="validar.php" method="POST">
-
+<!-- IMPRESION DE LOS POSIBLES MENSAJES DE ERROR -->
     <?php
 if (!empty($_GET['error'])): ?>
     <div class="error" >
