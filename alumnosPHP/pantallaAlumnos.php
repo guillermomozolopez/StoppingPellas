@@ -33,6 +33,7 @@ require "../Login/headerLogin.php";
 ?>
 <div>
     <h1>Gestor de faltas</h1>
+    <div class="forms">
     <form action='pantallaAlumnos.php' method='post'>
         <select name="selectAsignaturas">
             <?php
@@ -46,6 +47,7 @@ foreach ($listaAsignaturas as $asignatura) {
     <form action='pantallaAlumnos.php' method='post'>
         <input type="submit" name="btnMostrarTodas" value="Mostrar Todas Faltas">    
     </form>
+    </div>
     <?php
         if(isset($_POST['btnMostrar'])) {
             $listaFaltas = $alumno->listarFaltas($_SESSION['user'], $_POST['selectAsignaturas']);

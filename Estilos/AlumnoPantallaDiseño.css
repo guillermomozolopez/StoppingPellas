@@ -71,3 +71,34 @@ table{
     width: 100%;
     border-collapse: collapse;
 }
+.forms{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+input[type='submit']{
+    background: transparent;
+    border: white 2px solid;
+    border-radius: 5px;
+    color: white;
+    font-family: tiza;
+    font-size: 15px;
+    padding: 3px;
+}
+select{
+    background: transparent;
+    border: 2px white solid;
+    font-family: tiza;
+    color: white;
+    padding: 4px;
+    border-radius: 6px;
+}
+option{
+    background: #424347;
+    border: 2px white solid;
+    font-family: tiza;
+    color: white;
+    padding: 3px;
+    border-radius: 6px
+}
+}
