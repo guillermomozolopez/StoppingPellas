@@ -4,9 +4,9 @@
 
     $perfil = new Perfil();
 
-    $dni ="22222222H";
+    $dni ="22222222J";
 
-
+    
 ?>
 
 <!DOCTYPE html>
@@ -19,45 +19,65 @@
 </head>
 <body>
     <h1>Mi perfil</h1>
-    <form action="">
+    <?php 
+        $esProfe = $perfil->comprobarProfe($dni);
+
+        if($esProfe[0]['profe'] != 0) {
+            $info = $perfil->infoPerfilProfe($dni);
+        } else {
+            $info = $perfil->infoPerfilAlumno($dni);
+        }
+    
+       
+    ?>
+    <form action="pantallaMiPerfil.php" method="post">
         <table>
             <tr>
                 <td>DNI</td>
-                <td><input type="text" name="dniAlu" id="dniAlu" value=""></td>
+                <?php echo '<td><input type="text" name="dni" value="'.$info[0]['DNI'].'" disabled></td>'?>
             </tr>
             <tr>
                 <td>Nombre</td>
-                <td><input type="text" name="nombreAlu" id="nombreAlu"></td>
+                <?php echo '<td><input type="text" name="nombre" value="'.$info[0]['Nombre'].'" disabled></td>'?>
             </tr>
             <tr>
                 <td>Primer apellido</td>
-                <td><input type="text" name="ape1Alu" id="ape1Alu"></td>
+                <?php echo '<td><input type="text" name="ape1" value="'.$info[0]['Apellido1'].'" disabled></td>'?>
             </tr>
             <tr>
                 <td>Segundo apellido</td>
-                <td><input type="text" name="ape2Alu" id="ape2Alu"></td>
+                <?php echo '<td><input type="text" name="ape2" value="'.$info[0]['Apellido2'].'" disabled></td>'?>
             </tr>
             <tr>
                 <td>Fecha de nacimiento</td>
-                <td><input type="date" name="fechaNacAlu" id="fechaNacAlu"></td>
+                <?php echo '<td><input type="text" name="fecha" value="'.$info[0]['FechaNac'].'" disabled></td>'?>
             </tr>
             <tr>
                 <td>E-Mail</td>
-                <td><input type="text" name="emailAlu" id="emailAlu"></td>
+                <?php echo '<td><input type="text" name="email" value="'.$info[0]['Email'].'"></td>'?>
             </tr>
             <tr>
                 <td>Telefono</td>
-                <td><input type="text" name="tlfAlu" id="tlfAlu"></td>
+                <?php echo '<td><input type="text" name="tlf"  value="'.$info[0]['Telefono'].'"></td>'?>
             </tr>
             <tr>
                 <td>Direccion</td>
-                <td><input type="text" name="dirAlu" id="dirAlu"></td>
+                <?php echo '<td><input type="text" name="direccion" value="'.$info[0]['Direccion'].'"></td>'?>
             </tr>
             <tr>
                 <td></td>
-                <td><input type="submit" name ="registrarAlu" value="Registrar alumno"></td>
+                <td><input type="submit" name="btnEditar" value="Editar campos"></td>
             </tr>
         </table>
     </form>
+    <?php
+        if (isset($_POST['btnEditar'])) {
+            if($esProfe[0]['profe'] != 0) {
+                $profeEditado = $perfil->editarProfe($_POST['email'], $_POST['tlf'], $_POST['direccion'], $dni);
+            } else {
+                $alumnoEditado = $perfil->editarAlumno($_POST['email'], $_POST['tlf'], $_POST['direccion'], $dni);
+            }
+        }
+    ?>
 </body>
 </html>

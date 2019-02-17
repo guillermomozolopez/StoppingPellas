@@ -28,6 +28,24 @@
             return $infoPerfilAlumno;
         }
 
+        public function editarProfe($email, $tlf,  $direccion, $dni) {
+            $sql = "UPDATE PROFESORES SET EMAIL = \"$email\", TELEFONO = ".$tlf.", DIRECCION = \"$direccion\" WHERE DNI = \"$dni\"";
+            if ($this->conexion_db->query($sql) === TRUE) {
+                echo "PROFESOR EDITADO";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conexion_db->error;
+            }
+        }
+
+        public function editarAlumno($email, $tlf,  $direccion, $dni) {
+            $sql = "UPDATE ALUMNOS SET EMAIL = \"$email\", TELEFONO = ".$tlf.", DIRECCION = \"$direccion\" WHERE DNI = \"$dni\"";
+            if ($this->conexion_db->query($sql) === TRUE) {
+                echo "ALUMNO EDITADO";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conexion_db->error;
+            }
+        }
+
     }
 
 ?>
