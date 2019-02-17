@@ -23,9 +23,11 @@ if (isset($_POST['send'])) {
 
         //si existe el usuario
         if ($existeUsuario) {
-            if(isset($_POST['recordar']) && !empty($_POST['recordar'])){
-                setcookie($_POST['dni'], $_POST['password'], time()+3600, "/" , "localhost"); 
-                }
+            //si existe usuario crearemos una cookie con el dni
+            
+            
+                setcookie("dni", $_POST['dni'], time()+3600, "/" , "localhost"); 
+                
             session_start();
             $_SESSION['rama']= "";
             $_SESSION['user'] = $_POST['dni'];

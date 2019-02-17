@@ -1,10 +1,10 @@
 <?php
 
     require "./clasePerfil.php";
-
+    
     $perfil = new Perfil();
-
-    $dni ="22222222J";
+  
+    $dni =$_COOKIE['dni'];
 
     
 ?>
@@ -18,8 +18,11 @@
     <title>Mi perfil</title>
 </head>
 <body>
+   
     <h1>Mi perfil</h1>
+
     <?php 
+   
         $esProfe = $perfil->comprobarProfe($dni);
 
         if($esProfe[0]['profe'] != 0) {
@@ -69,6 +72,7 @@
                 <td><input type="submit" name="btnEditar" value="Editar campos"></td>
             </tr>
         </table>
+       
     </form>
     <?php
         if (isset($_POST['btnEditar'])) {
