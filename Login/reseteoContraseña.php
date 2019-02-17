@@ -33,7 +33,7 @@ if (isset($_POST['send'])) {
             echo "coincides";
             $dni = $olvidar->obtenerDni($_SESSION['email']);
             $olvidarPass = $olvidar->cambiarPass($dni, $_POST['pass']);
-            session_abort();
+            session_destroy();
             header("Location:../Login/login.php");
         }
 
