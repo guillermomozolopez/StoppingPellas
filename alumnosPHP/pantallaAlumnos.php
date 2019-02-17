@@ -22,14 +22,10 @@ $listaAsignaturas = $alumno->listarAsignaturas($_SESSION['user']);
     </style>
 </head>
 <body>
-<div id="logoHeader">
-<p>Aqui va el logo guillermo</p>
-
-</div>
 
 <?php
 
-echo "<a href=''>Mi perfil</a>";
+// header
 require "../Login/headerLogin.php";
 ?>
     <h1>Gestor de faltas</h1>
@@ -48,7 +44,7 @@ foreach ($listaAsignaturas as $asignatura) {
     </form>
     <?php
         if(isset($_POST['btnMostrar'])) {
-            $listaFaltas = $alumno->listarFaltas($dni, $_POST['selectAsignaturas']);
+            $listaFaltas = $alumno->listarFaltas($_SESSION['user'], $_POST['selectAsignaturas']);
             echo "<table>";
             echo "<tr><td>ASIGNATURA</td><td>FECHA</td></tr>";
             foreach ($listaFaltas as $falta) {
@@ -58,7 +54,7 @@ foreach ($listaAsignaturas as $asignatura) {
         }
 
         if(isset($_POST['btnMostrarTodas'])) {
-            $listaTodas = $alumno->listarTodas($dni);
+            $listaTodas = $alumno->listarTodas($_SESSION['user']);
             echo "<table>";
             echo "<tr><td>ASIGNATURA</td><td>FALTAS</td></tr>";
             foreach ($listaTodas as $falta) {

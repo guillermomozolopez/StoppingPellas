@@ -31,7 +31,7 @@ if (isset($_POST['send'])) {
             $esAlumno = $objetoLogin->esAlumno($dni);
             if ($esProfesor) {
                 //modificar la pagina cuando se merge-----------------------------------------------------------------------
-                header("Location: ../profesoresPHP/pantallaProfesores.php?dni=");
+                header("Location: ../profesoresPHP/pantallaProfesores.php");
                 exit;
             } else if ($esAlumno) {
                 // ////modificar la pagina cuando se merge-----------------------------------------------------------------------
