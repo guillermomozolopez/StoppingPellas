@@ -6,8 +6,10 @@ if (isset($_SESSION['user'])) {
     session_start();
     if ($_SESSION['rama'] == 0) {
         header("Location:../profesoresPHP/pantallaProfesores.php");
-    } else {
+    } else if($_SESSION['rama'] == 1){
         header("Location:../alumnosPHP/pantallaAlumnos.php");
+    }else if($_SESSION['rama'] == 2){
+        header("Location:../adminPHP/pantallaAdmin.php");
     }
 
 }
