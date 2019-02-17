@@ -34,7 +34,7 @@ body > div:nth-child(2){
 #header > div:nth-child(2)>a{
     margin: 0px 19px;
     font-size: 35px;
-    color:black;
+    color:white;
 }
 body > div:nth-child(2) > table > tbody > tr > td:nth-child(1){
     background: #C9463D;
