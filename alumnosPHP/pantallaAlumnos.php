@@ -20,7 +20,7 @@ $listaAsignaturas = $alumno->listarAsignaturas($_SESSION['user']);
     <title>Alumnos</title>
     <style>
         tr, td {
-            border: solid 1px black;
+            border: solid 2px white;
         }
     </style>
 </head>

@@ -1,17 +1,22 @@
 /*colores #330136, #5E1742, #962E40, #C9463D, #FF5E35*/
-
+@font-face{
+    font-family: tiza;
+    src: url(../fuentes/tiza.ttf)
+}
 html,body{
     margin:0;
     padding: 0;
     border:0;
-    height: 99%;
+    height: 100%;
+    background-image: url(../img/Chalk-board-wallpaper-hd.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 100%;
 }
 body{
     display: grid;
     grid-template-columns: 1fr 50% 1fr;
     grid-template-rows: min-content 1fr;
-    font-family: 'Ubuntu', sans-serif !important; 
-    background: #330136;
+    font-family: 'tiza' !important; 
 }
 #header{
     grid-row: 1/2;
@@ -21,15 +26,22 @@ body{
 }
 #logo{
     flex: 0 0 50%;
+    background-image: url(../img/stoppingpellas-logoAlargado.png);
+    background-repeat: no-repeat;
+    height: 136px;
+    background-position-x: 50%;
 }
 #header > div:nth-child(2){
     flex: 0 0 50%;
-    text-align: end;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 body > div:nth-child(2){
     grid-row: 2/3;
     grid-column: 2/3;
     text-align:center;
+    
 }
 #header > div:nth-child(2)>a{
     margin: 0px 19px;
@@ -37,16 +49,19 @@ body > div:nth-child(2){
     color:white;
 }
 body > div:nth-child(2) > table > tbody > tr > td:nth-child(1){
-    background: #C9463D;
+    background: transparent;
+    color: white;
+    padding: 7px 0;
 }
 body > div:nth-child(2) > table > tbody > tr > td:nth-child(2){
-    background: #FF5E35;
+    background: transparent;
+    color: white;
 }
 body > div:nth-child(2) > table > tbody > tr:nth-child(1) > td{
-    background: #962E40;
-    padding: 11px;
+    background: transparent;
+    padding: 24px 11px;
     border-radius: 5px 5px 0px 0px;
-    color: black;
+    color: white;
     font-weight: 900;
 }
 h1{
@@ -54,4 +69,5 @@ h1{
 }
 table{
     width: 100%;
+    border-collapse: collapse;
 }

@@ -3,9 +3,11 @@ html, body{
     background-image: url(../img/Chalk-board-wallpaper-hd.jpg);
     font-family: 'Ubuntu', sans-serif !important;
     height: 100%;
+    min-height: 636px;
     margin: 0;
     background-repeat: no-repeat;
-    background-size: 100vw 100vh;
+    background-size: 100vw 100%;
+
 }
 body{
     display: grid;
