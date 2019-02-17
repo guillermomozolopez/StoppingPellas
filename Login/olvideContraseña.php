@@ -1,4 +1,5 @@
 <?php
+$error="";
 if (isset($_POST['enviar'])) {
     require "./clase_olvidar.php";
     $recuperar = new Olvidar();
@@ -19,7 +20,7 @@ if (isset($_POST['enviar'])) {
         mail($_POST['email'], $asunto, $mensaje);
         header("Location:../Login/login.php");
     }else if($existe == false){
-        echo "Email incorrecto";
+        $error = "Email Incorrecto";
     }
 } 
 ?>
@@ -29,11 +30,23 @@ if (isset($_POST['enviar'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../Estilos/estiloOlvide.css">
     <title>Document</title>
 </head>
 <body>
+
+<div class="fondo"></div>
+    <div id="logo"></div>
+    <form action="./olvideContraseña.php" method="POST">
+<!-- IMPRESION DE LOS POSIBLES MENSAJES DE ERROR -->
+    <?php
+if (!empty($error)): ?>
+    <div class="error" >
+    <p><?=$error?></p>
+    </div>
+    <?php endif;?>
     <div>
-        <form action="./olvideContraseña.php" method="POST">
+      
         <input type="text" name="email">
         <input type="submit" value="Enviar correo" name="enviar">
         </form>
