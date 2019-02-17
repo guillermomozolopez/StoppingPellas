@@ -1,0 +1,33 @@
+html,body{
+    height: 100%;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+.fondo{
+    background-image: url(../img/Chalk-board-wallpaper-hd.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 100%;
+    grid-row: 1/3;
+    grid-column: 1/4;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+#header{
+    display: flex;
+}
+#logo{
+    flex: 0 0 50%;
+    background-image: url(../img/stoppingpellas-logoAlargado.png);
+    background-repeat: no-repeat;
+    height: 136px;
+    background-position-x: 50%;
+}
+#header > div:nth-child(2){
+    flex: 0 0 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
