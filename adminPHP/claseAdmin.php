@@ -19,7 +19,7 @@
             if ($this->conexion_db->query($sql) === TRUE) {
                 echo "USUARIO AGREGADO";
             } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
+                echo "Error: " . $sql . "<br>" . $conexion_db->error;
             }
         }
 
@@ -27,10 +27,10 @@
             $sql = "SELECT COUNT(*) AS alumno FROM ALUMNOS WHERE DNI=\"$dni\"";
             $resultado = $this->conexion_db->query($sql);
             $esAlumno = $resultado->fetch_all(MYSQLI_ASSOC);
-            return $esProfe;
+            return $esAlumno;
         }
 
-        public function comprobarProfe() {
+        public function comprobarProfe($dni) {
             $sql = "SELECT COUNT(*) AS profe FROM PROFESORES WHERE DNI=\"$dni\"";
             $resultado = $this->conexion_db->query($sql);
             $esProfe = $resultado->fetch_all(MYSQLI_ASSOC);
@@ -42,7 +42,25 @@
             if ($this->conexion_db->query($sql) === TRUE) {
                 echo "PROFESOR INSCRITO";
             } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
+                echo "Error: " . $sql . "<br>" . $conexion_db->error;
+            }
+        }
+
+        public function registrarAlumno($dni, $nombre,  $ape1, $ape2, $fechaNac, $email, $tlf, $direccion) {
+            $sql = "INSERT INTO ALUMNOS (DNI, NOMBRE, APELLIDO1, APELLIDO2, FECHANAC, EMAIL, TELEFONO, DIRECCION) VALUES (\"$dni\", \"$nombre\", \"$ape1\", \"$ape2\", \"$fechaNac\", \"$email\", \"$tlf\", \"$direccion\")";
+            if ($this->conexion_db->query($sql) === TRUE) {
+                echo "ALUMNO INSCRITO";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conexion_db->error;
+            }
+        }
+
+        public function borrarUsuario($dni) {
+            $sql = "DELETE FROM USUARIO WHERE DNI = \"$dni\"";
+            if ($this->conexion_db->query($sql) === TRUE) {
+                echo "USUARIO BORRADO";
+            } else {
+                echo "Error: " . $sql . "<br>" . $conexion_db->error;
             }
         }
 

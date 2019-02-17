@@ -34,7 +34,7 @@
             if ($this->conexion_db->query($sql) === TRUE) {
                 echo "Faltas guardadas";
             } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
+                echo "Error: " . $sql . "<br>" . $conexion_db->error;
             }
         }
     }

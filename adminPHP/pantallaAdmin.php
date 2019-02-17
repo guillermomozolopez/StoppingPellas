@@ -14,145 +14,15 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method='post'>
-        <h1>Añadir usuario</h1>
-        <table>
-            <tr>
-                <td>DNI</td>
-                <td><input type="text" name="dni_usuario" id="dni_usuario"></td>
-            </tr>
-            <tr>
-                <td>Contraseña</td>
-                <td><input type="password" name="pass_usuario" id="pass_usuario"></td>
-            </tr>
-            <tr>
-                <td>Confirmar contraseña</td>
-                <td><input type="password" name="conf_pass_usuario" id="conf_pass_usuario"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" name ="añadirUser" value="Añadir usuario"></td>
-            </tr>
-        </table>
+    <h1>Menú administrador</h1>
+    <form action="añadirUsuario.php">
+        <input type="submit" value="Añadir usuario">
     </form>
-    <?php
-        if(isset($_POST['añadirUser'])) {
-            $dni_usuario = $_POST['dni_usuario'];
-            $cont_usuario = $_POST['pass_usuario'];
-            $existeDNI = $admin->comprobarDNI($dni_usuario);
-            if($existeDNI[0]['existe'] != 0) {
-                echo "Ese usuario ya está registrado";
-            } else {
-                if ($_POST['pass_usuario'] != $_POST['conf_pass_usuario']) {
-                    echo "La contraseña no coincide";
-                } else {
-                    $fecha = date("Y-m-d");
-                    $usuario = $admin->insertarUser($dni_usuario, $cont_usuario, $fecha);
-                }
-            }
-        }
-    ?>
-    <form action="" method="post">
-        <h1>Registrar usuario como profesor</h1>
-        <table>
-            <tr>
-                <td>DNI</td>
-                <td><input type="text" name="dniPro" id="dniPro"></td>
-            </tr>
-            <tr>
-                <td>Nombre</td>
-                <td><input type="text" name="nombrePro" id="nombrePro"></td>
-            </tr>
-            <tr>
-                <td>Primer apellido</td>
-                <td><input type="text" name="ape1Pro" id="ape1Pro"></td>
-            </tr>
-            <tr>
-                <td>Segundo apellido</td>
-                <td><input type="text" name="ape2Pro" id="ape2Pro"></td>
-            </tr>
-            <tr>
-                <td>Fecha de nacimiento</td>
-                <td><input type="date" name="fechaNacPro" id="fechaNacPro"></td>
-            </tr>
-            <tr>
-                <td>E-Mail</td>
-                <td><input type="text" name="emailPro" id="emailPro"></td>
-            </tr>
-            <tr>
-                <td>Telefono</td>
-                <td><input type="text" name="tlfPro" id="tlfPro"></td>
-            </tr>
-            <tr>
-                <td>Direccion</td>
-                <td><input type="text" name="dirPro" id="dirPro"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" name ="registrarPro" value="Registrar profesor"></td>
-            </tr>
-        </table>
+    <form action="inscribirProfe.php">
+        <input type="submit" value="Inscribir profesor">
     </form>
-    <?php
-        if(isset($_POST['registrarPro'])) {     
-            $existeDNI = $admin->comprobarDNI($_POST['dniPro']);       
-            $esProfe = $admin->comprobarProfe($_POST['dniPro']);
-            $esAlumno = $admin->comprobarAlumno($_POST['dniPro']);
-            if($existeDNI[0]['existe'] == 0) {
-                echo "Ese usuario no está registrado";
-            } else {
-                if($esProfe[0]['profe']) {
-                    echo "Ese usuario ya está inscrito como profesor";
-                } else {
-                    if ($esAlumno[0]['alumno']) {
-                        echo "Ese usuario ya está inscrito como alumno";
-                    } else {
-                        $profesor = $admin->registrarProfe($_POST['dniPro'], $_POST['nombrePro'], $_POST['ape1Pro'], $_POST['ape2Pro'], $_POST['fechaNacPro'], $_POST['emailPro'], $_POST['tlfPro'], $_POST['dirPro']);
-                    }
-                }
-            }
-        }
-    ?>
-    <form action="" method="post">
-        <h1>Registrar usuario como alumno</h1>
-        <table>
-            <tr>
-                <td>DNI</td>
-                <td><input type="text" name="dniAlu" id="dniAlu"></td>
-            </tr>
-            <tr>
-                <td>Nombre</td>
-                <td><input type="text" name="nombreAlu" id="nombreAlu"></td>
-            </tr>
-            <tr>
-                <td>Primer apellido</td>
-                <td><input type="text" name="ape1Alu" id="ape1Alu"></td>
-            </tr>
-            <tr>
-                <td>Segundo apellido</td>
-                <td><input type="text" name="ape2Alu" id="ape2Alu"></td>
-            </tr>
-            <tr>
-                <td>Fecha de nacimiento</td>
-                <td><input type="text" name="fechaNacAlu" id="fechaNacAlu"></td>
-            </tr>
-            <tr>
-                <td>E-Mail</td>
-                <td><input type="text" name="emailAlu" id="emailAlu"></td>
-            </tr>
-            <tr>
-                <td>Telefono</td>
-                <td><input type="text" name="tlfAlu" id="tlfAlu"></td>
-            </tr>
-            <tr>
-                <td>Direccion</td>
-                <td><input type="text" name="dirAlu" id="dirAlu"></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" name ="registrarAlu" value="Registrar alumno"></td>
-            </tr>
-        </table>
+    <form action="inscribirAlumno.php">
+        <input type="submit" value="Inscribir alumno">
     </form>
 </body>
 </html>
