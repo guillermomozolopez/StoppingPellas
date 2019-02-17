@@ -4,11 +4,10 @@ require "./claseProfesor.php";
 
 $profesor = new Profesor();
 
-$dni = $_GET['dni'];
 
 $listaAsignaturas = $profesor->listarAsignaturas($_SESSION['user']);
 
-/*error_reporting(E_ERROR | E_PARSE);*/
+
 
 ?>
 
