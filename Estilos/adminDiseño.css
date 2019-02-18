@@ -97,6 +97,6 @@ input[type="submit"]:hover {
         font-size: 10px;
     }
 }
-input:focus{
+input:focus,select:focus{
     outline: none;
 }

@@ -109,6 +109,6 @@ option{
     top: 35px;
     left: 54px;
 }
-input:focus{
+input:focus,select:focus{
     outline: none;
 }

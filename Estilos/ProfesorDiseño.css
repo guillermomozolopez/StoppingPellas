@@ -121,6 +121,6 @@ td{
     color: #18b80a;
     text-shadow: 4px 2px 1px black;
 }
-input:focus{
+input:focus,select:focus{
     outline: none;
 }

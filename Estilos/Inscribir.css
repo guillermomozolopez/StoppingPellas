@@ -99,6 +99,6 @@ table{
         top: 139px;
     }
 }
-input:focus{
+input:focus,select:focus{
     outline: none;
 }

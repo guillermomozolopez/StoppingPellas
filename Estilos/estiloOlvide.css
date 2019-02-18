@@ -98,6 +98,6 @@ a{
     top: 18px;
     left: 18px;
 }
-input:focus{
+input:focus,select:focus{
     outline: none;
 }
