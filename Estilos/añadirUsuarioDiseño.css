@@ -45,8 +45,12 @@ html,body{
     margin: 0px 19px;
     font-size: 35px;
     color: white;
+    
 }
 
+#header > div:nth-child(2) > a:nth-child(1){
+    display: none;
+}
 .contenido{
     display: grid;
     grid-template-columns: 1fr min-content 1fr;
