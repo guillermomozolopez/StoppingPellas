@@ -30,11 +30,11 @@ error_reporting(E_ERROR | E_PARSE);
 <body>
     <div class="fondo"></div>
     <?php
-        require "../Login/headerLogin.php";     //Incluimos el header
+        require "../Login/headerLogin.php";     // Incluimos el header
     ?>
     <div class="tablas">
         <?php
-            $nombre = $alumno->nombre($_SESSION['user']);   //Buscamos el nombre del DNI de la sesion
+            $nombre = $alumno->nombre($_SESSION['user']);   // Buscamos el nombre del DNI de la sesion
             echo "<h1>".$nombre[0]['Nombre']." ".$nombre[0]['Apellido1']." ".$nombre[0]['Apellido2']."</h1>";
         ?>
         <div class="forms">
