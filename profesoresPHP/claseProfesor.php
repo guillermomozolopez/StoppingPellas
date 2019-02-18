@@ -15,7 +15,7 @@
         }
 
         public function listarAlumnos($cod_asignatura) {
-            $sql = "SELECT * FROM ALUMNOS INNER JOIN ALUMNOS_ASIGNATURAS ON ALUMNOS.DNI = ALUMNOS_ASIGNATURAS.DNI_ALUMNO WHERE COD_ASIGNATURA = \"$cod_asignatura\" ";
+            $sql = "SELECT * FROM ALUMNOS INNER JOIN ALUMNOS_ASIGNATURAS ON ALUMNOS.DNI = ALUMNOS_ASIGNATURAS.DNI_ALUMNO WHERE COD_ASIGNATURA = \"$cod_asignatura\" ORDER BY APELLIDO1";
             $resultado = $this->conexion_db->query($sql);
             $listaAlumnos = $resultado->fetch_all(MYSQLI_ASSOC);
             return $listaAlumnos;
