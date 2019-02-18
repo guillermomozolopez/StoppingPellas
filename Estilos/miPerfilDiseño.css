@@ -89,3 +89,8 @@ input:disabled {
     top: 35px;
     left: 54px;
 }
+@media (max-width:870px){
+    .volver{
+        top: 139px;
+    }
+}
