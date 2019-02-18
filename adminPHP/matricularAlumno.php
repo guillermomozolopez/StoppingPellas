@@ -18,23 +18,23 @@
     <title>Matricular alumno</title>
 </head>
 <body>
-<div class="fondo"></div>
-<?php
-require "../Login/headerLogin.php";
-?>
-<a href="../adminPHP/pantallaAdmin.php" class="volver"><i class="fas fa-arrow-circle-left"></i></a>
+    <div class="fondo"></div>
+    <?php   
+        require "../Login/headerLogin.php";     // Incluimos el header   
+    ?>
+    <a href="../adminPHP/pantallaAdmin.php" class="volver"><i class="fas fa-arrow-circle-left"></i></a>
     <h1>Matricular alumno en una asignatura</h1>
     <form action="" method="post">
         <select name="alumnos" id="alumnos">
         <?php
-            foreach ($listaAlumnos as $alumno) {
+            foreach ($listaAlumnos as $alumno) {    // Añadimos los options con el nombre de los alumnos y value = dni
                 echo "<option value=\"".$alumno['DNI']."\">".$alumno['Apellido1']." ".$alumno['Apellido2']." ".$alumno['Nombre'];
             }
         ?>
         </select>
         <select name="asignaturas" id="asignaturas">
         <?php   
-            foreach ($listaAsignaturas as $asignatura) {
+            foreach ($listaAsignaturas as $asignatura) {    // Añadimos los options con el nombre de asignatura y value = cod_asignatura
                 echo "<option value=\"".$asignatura['cod_asignatura']."\">".$asignatura['nombre'];
             }
         ?>
@@ -43,9 +43,10 @@ require "../Login/headerLogin.php";
     </form>
     <?php
         if(isset($_POST['matricular'])) {
+            // Comprobamos si el alumno ya esta matriculado en esa asignatura
             $estaMat = $admin->estaMatriculado($_POST['asignaturas'], $_POST['alumnos']);
             if($estaMat[0]['matriculado'] == 0) {
-                $alumnoMatriculado = $admin->matricularAlumno($_POST['alumnos'], $_POST['asignaturas']);
+                $alumnoMatriculado = $admin->matricularAlumno($_POST['alumnos'], $_POST['asignaturas']);    // Si no lo esta lo matriculamos
             } else {
                 echo "<p class='error'>Este alumno ya esta matriculado en esa asignatura</p>";
             }

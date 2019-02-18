@@ -20,7 +20,7 @@
 <div class="fondo"></div>
 <a href="../adminPHP/pantallaAdmin.php" class="volver"><i class="fas fa-arrow-circle-left"></i></a>
 <?php
-require "../Login/headerLogin.php";
+require "../Login/headerLogin.php";     //Incluimos el header
 ?>
     <form action="" method="post">
         <h1>Registrar usuario como alumno</h1>
@@ -64,7 +64,8 @@ require "../Login/headerLogin.php";
         </table>
     </form>
     <?php
-        if(isset($_POST['registrarAlu'])) {     
+        if(isset($_POST['registrarAlu'])) {    
+            // Hacemos las validaciones
             $existeDNI = $admin->comprobarDNI($_POST['dniAlu']);       
             $esProfe = $admin->comprobarProfe($_POST['dniAlu']);
             $esAlumno = $admin->comprobarAlumno($_POST['dniAlu']);
@@ -80,6 +81,7 @@ require "../Login/headerLogin.php";
                         if ($esAlumno[0]['alumno']) {
                             echo "<p class='error'>Ese usuario ya está inscrito como alumno</p>";
                         } else {
+                            // Si cumple todas las validaciones introducimos el alumno
                             $alumno = $admin->registrarAlumno($_POST['dniAlu'], $_POST['nombreAlu'], $_POST['ape1Alu'], $_POST['ape2Alu'], $_POST['fechaNacAlu'], $_POST['emailAlu'], $_POST['tlfAlu'], $_POST['dirAlu']);
                         }
                     }

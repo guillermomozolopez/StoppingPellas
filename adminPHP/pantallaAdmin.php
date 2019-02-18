@@ -20,26 +20,30 @@
 <body>
     <div class="fondo"></div>
 
-    <!-- header -->
-
     <?php
-        require "../Login/headerLogin.php";
+        require "../Login/headerLogin.php";     //Incluimos el header
     ?>
 
     <div class="contenido">
-    <h1>Administrador</h1>
-    <form action="añadirUsuario.php">
-        <input type="submit" value="Añadir usuario">
-    </form>
-    <form action="inscribirProfe.php">
-        <input type="submit" value="Inscribir profesor">
-    </form>
-    <form action="inscribirAlumno.php">
-        <input type="submit" value="Inscribir alumno">
-    </form>
-    <form action="matricularAlumno.php">
-        <input type="submit" value="Matricular alumno">
-    </form>
+
+        <h1>Administrador</h1>
+
+        <form action="añadirUsuario.php">
+            <input type="submit" value="Añadir usuario">
+        </form>
+
+        <form action="inscribirProfe.php">
+            <input type="submit" value="Inscribir profesor">
+        </form>
+
+        <form action="inscribirAlumno.php">
+            <input type="submit" value="Inscribir alumno">
+        </form>
+
+        <form action="matricularAlumno.php">
+            <input type="submit" value="Matricular alumno">
+        </form>
+
     </div>
 </body>
 </html>

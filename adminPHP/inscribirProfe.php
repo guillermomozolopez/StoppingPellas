@@ -17,12 +17,12 @@
     <title>Inscribir usuario como profesor</title>
 </head>
 <body>
-<div class="fondo"></div>
-<a href="../adminPHP/pantallaAdmin.php" class="volver"><i class="fas fa-arrow-circle-left"></i></a>
-<?php
-require "../Login/headerLogin.php";
-?>
-<form action="" method="post">
+    <div class="fondo"></div>
+    <a href="../adminPHP/pantallaAdmin.php" class="volver"><i class="fas fa-arrow-circle-left"></i></a>
+    <?php
+        require "../Login/headerLogin.php";     //Incluimos el header
+    ?>
+    <form action="" method="post">
         <h1>Registrar usuario como profesor</h1>
         <table>
             <tr>
@@ -65,6 +65,7 @@ require "../Login/headerLogin.php";
     </form>
     <?php
         if(isset($_POST['registrarPro'])) {     
+            // Hacemos todas las validaciones
             $existeDNI = $admin->comprobarDNI($_POST['dniPro']);       
             $esProfe = $admin->comprobarProfe($_POST['dniPro']);
             $esAlumno = $admin->comprobarAlumno($_POST['dniPro']);
@@ -80,6 +81,7 @@ require "../Login/headerLogin.php";
                         if ($esAlumno[0]['alumno']) {
                             echo "<p class='error'>Ese usuario ya está inscrito como alumno</p>";
                         } else {
+                            // Si cumple las validaciones insertamos el usuario en profesores
                             $profesor = $admin->registrarProfe($_POST['dniPro'], $_POST['nombrePro'], $_POST['ape1Pro'], $_POST['ape2Pro'], $_POST['fechaNacPro'], $_POST['emailPro'], $_POST['tlfPro'], $_POST['dirPro']);
                         }
                     }
