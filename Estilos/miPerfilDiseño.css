@@ -18,6 +18,8 @@ html,body{
     text-align: center;
     color: #18b80a;
     text-shadow: 4px 2px 1px black;
+    grid-row: 3/4;
+    grid-column: 2/3;
 }
 html,body,input{
     font-family: tiza;
@@ -61,7 +63,7 @@ h1{
 .contenido{
     display: grid;
     grid-template-columns: 1fr min-content 1fr;
-    grid-template-rows: min-content min-content;
+    grid-template-rows: min-content min-content min-content;
     grid-row-gap: 20px;
 }
 .contenido>h1{
@@ -70,7 +72,7 @@ h1{
     text-align: center;
 }
 .contenido>form{
-    grid-row: 2/2;
+    grid-row: 2/3;
     grid-column: 2/3;
 }
 body > div.contenido > form > table > tbody > tr:nth-child(9) > td:nth-child(2) > input[type="submit"]{

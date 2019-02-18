@@ -10,7 +10,7 @@ html,body,input{
 
 body{
     display: grid;
-    grid-template-columns: 1fr min-content 1fr;
+    grid-template-columns: 1fr max-content 1fr;
     grid-template-rows: min-content min-content;
 }
 
@@ -71,14 +71,41 @@ form{
     grid-column: 2/3;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 form>select:first-child{
-    flex: 0 0 100%;
+    flex: 0 0 70%;
 }
 form>select:nth-child(2){
-    flex: 0 0 50%;
+    flex: 0 0 30%;
 }
 
 input[type="submit"]{
     flex: 0 0 50%;
+    margin-top: 10px;
+}
+.error{
+    text-align: center;
+    color: #bd3428;
+    text-shadow: 4px 2px 1px black;
+}
+.correcto{
+    text-align: center;
+    color: #18b80a;
+    text-shadow: 4px 2px 1px black;
+}
+.error,.correcto{
+    grid-row: 3/4;
+    grid-column: 2/3;
+    white-space: nowrap;
+}
+option{
+    background: #4b5155;
+}
+.volver {
+    position: fixed;
+    color: white;
+    font-size: 50px;
+    top: 35px;
+    left: 54px;
 }

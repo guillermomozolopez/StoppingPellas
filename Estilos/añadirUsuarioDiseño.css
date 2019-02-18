@@ -110,10 +110,14 @@ input[type="submit"]:hover {
     background: white;
     color: #4c5156;
 }
+.error,.correcto{
+    grid-column: 1/span2;
+}
 .error{
     text-align: center;
     color: #bd3428;
     text-shadow: 4px 2px 1px black;
+    
 }
 .correcto{
     text-align: center;
