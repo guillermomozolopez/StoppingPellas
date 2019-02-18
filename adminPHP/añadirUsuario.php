@@ -11,11 +11,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../Estilos/añadirUsuarioDiseño.css">
     <title>Añadir un nuevo usuario</title>
 </head>
 <body>
-    <form action="" method='post'>
-        <h1>Añadir usuario</h1>
+    <div class="fondo"></div>
+
+    <?php
+        require "../Login/headerLogin.php";
+    ?>   
+   
+    <div class="contenido">
+    <h1>Añadir usuario</h1>
+    <form action="" method='post'>        
         <table>
             <tr>
                 <td>DNI</td>
@@ -56,5 +65,6 @@
             }
         }
     ?>
+    </div>
 </body>
 </html>

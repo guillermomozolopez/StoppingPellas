@@ -10,6 +10,7 @@ html,body{
     font-family: tiza;
     color: white;
 }
+
 .fondo{
     background-image: url(../img/Chalk-board-wallpaper-hd.jpg);
     background-repeat: no-repeat;
@@ -21,10 +22,12 @@ html,body{
     height: 100%;
     z-index: -1;
 }
+
 #header{
     display: flex;
     padding-top: 15px;
 }
+
 #logo{
     flex: 0 0 50%;
     background-image: url(../img/stoppingpellas-logoAlargado.png);
@@ -43,6 +46,7 @@ html,body{
     font-size: 35px;
     color: white;
 }
+
 .contenido{
     display: grid;
     grid-template-columns: 1fr min-content 1fr;
@@ -54,53 +58,25 @@ html,body{
     grid-column: 1/4;
     text-align: center;
 }
+
 .contenido > form{
     grid-column: 1/4;
     text-align: center;
 }
 
-.contenido > #faltas{
-    grid-column: 2/3;
-    text-align: center;
-}
-
 input[type="submit"]{
+    width: 25%;
     background: transparent;
     border: white 2px solid;
     border-radius: 5px;
     color: white;
     font-family: tiza;
     font-size: 15px;
-    padding: 5px;
+    padding: 10px 3px;
 }
 
-select{
-    background: transparent;
-    border: 2px white solid;
-    font-family: tiza;
-    color: white;
-    padding: 4px;
-    border-radius: 6px;
-}
-option{
-    background: #4c5156;
-
-}
-table{
-    width: 100%;
-    border-collapse: collapse;
-}
-tr,td{
-    border: solid 2px white !important;
-}
-body > div.contenido > form:nth-child(3) > input[type="submit"]{
-    margin-top: 10px;
-}
-td{
-    padding: 1vw 4vw;
-}
-@media (max-width:500px){
+@media (max-width:600px){
     input[type="submit"],body{
-        font-size: 3vw;
+        font-size: 10px;
     }
 }
