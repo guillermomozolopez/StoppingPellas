@@ -8,6 +8,9 @@ class Login extends Conexion
         parent::__construct();
 
     }
+
+    //comprueba si existe el usuario
+
     public function existeUsuario($dni,$pass)
     {
         $sql = "SELECT COUNT(*) as 'cont' FROM USUARIO WHERE DNI='$dni' and CONTRASEÑA='$pass';";
@@ -19,7 +22,9 @@ class Login extends Conexion
         return false;
         
     }
+
     //metodo de la clase login en la que obtenemos si el usuario que entra es profesor 
+
     public function esProfe($dni)
     {
         $sql = "SELECT COUNT(*) as 'cont' from PROFESORES where DNI='$dni'";
@@ -30,6 +35,9 @@ class Login extends Conexion
         }
         return false;
     }
+
+    //comprueba si es alumno
+
     public function esAlumno($dni)
     {
         $sql = "SELECT COUNT(*) as 'cont' from ALUMNOS where DNI='$dni'";
@@ -40,9 +48,6 @@ class Login extends Conexion
         }
         return false;
     }
-    public function esAdmin()
-    {
-        
-    }
+    
 
 }

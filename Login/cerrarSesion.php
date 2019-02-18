@@ -1,4 +1,7 @@
 <?php
+
+//cierra la sesion abierta
+
 session_start();
 session_destroy();
 echo 'Cerrasndo sesión...';

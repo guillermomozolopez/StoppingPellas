@@ -8,6 +8,9 @@ if (isset($_POST['send'])) {
     require "./clase_olvidar.php";
     $olvidar = new Olvidar();
     echo strlen($_POST['pass']);
+
+    //validadciones dni
+
     if (empty($_POST['pass']) || empty($_POST['repass'])) {
         $error = "Campos vacios";
         header("Location:./reseteoContraseña.php?error=" . urlencode($error) . "");
@@ -35,6 +38,9 @@ if (isset($_POST['send'])) {
             echo "coincides";
             $dni = $olvidar->obtenerDni($_SESSION['email']);
             $olvidarPass = $olvidar->cambiarPass($dni, $_POST['pass']);
+
+            //destruye la sesion
+
             session_destroy();
             header("Location:../Login/login.php");
         }
@@ -66,13 +72,11 @@ if (!empty($_GET['error'])): ?>
     </div>
     <?php endif;?>
     <input name="pass" type="password" id="pass" placeholder="Introduzca nueva contraseña">
-    <!-- <p><label>Nueva contraseña</label><input type="password" name="pass" id="pass"></p> -->
     <input name="repass" type="password" id="repass" placeholder="Confirmar nueva contraseña">
-    <!-- <p><label>Confirmar contraseña</label><input type="password" name="repass" id="pass"></p> -->
     <input type="submit" name="send" value="Confirmar"></p>
     </form>
     <?php
-// echo $_GET['email'];
+
 
 ?>
 </body>

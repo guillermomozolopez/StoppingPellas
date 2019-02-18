@@ -1,5 +1,8 @@
 
 <?php
+
+//modularizacion del header
+
 echo "<div id='header'>";
     echo "<div id='logo'></div>";
     echo "<div>";

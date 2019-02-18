@@ -6,9 +6,14 @@ if (isset($_POST['enviar'])) {
     $existe = $recuperar->existeUsuario($_POST['email']);
     
     if($existe){
+        //empieza la sesion
+
         session_start();
         $_SESSION['email'] = $_POST['email'];
         $nombre = $recuperar->obtenerNombre($_POST['email']);
+
+        //se envia un correo para restablecer la contraseña
+
         echo "<div><p>Se ha mandado un correo para restablecer la contraseña</p><div>";
         $asunto = "StoppingPellas restablecer contraseña";
         $mensaje = "
@@ -18,7 +23,9 @@ if (isset($_POST['enviar'])) {
         
         http://localhost/StoppingPellas/Login/reseteoContrase%C3%B1a.php?email=".urlencode($_POST['email'])."";
         mail($_POST['email'], $asunto, $mensaje);
+        //si todo funciona nos devolvera al login
         header("Location:../Login/login.php");
+
     }else if($existe == false){
         $error = "Email Incorrecto";
     }
