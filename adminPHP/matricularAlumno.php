@@ -13,9 +13,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../Estilos/matricularAlumnoDiseño.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
     <title>Matricular alumno</title>
 </head>
 <body>
+<div class="fondo"></div>
+<?php
+require "../Login/headerLogin.php";
+?>
     <form action="" method="post">
         <select name="alumnos" id="alumnos">
         <?php
