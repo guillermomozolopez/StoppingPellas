@@ -74,7 +74,9 @@ input[type="submit"]{
     font-size: 15px;
     padding: 10px 3px;
 }
-
+#header > div:nth-child(2) > a:nth-child(1){
+    display: none;
+}
 @media (max-width:600px){
     input[type="submit"],body{
         font-size: 10px;
