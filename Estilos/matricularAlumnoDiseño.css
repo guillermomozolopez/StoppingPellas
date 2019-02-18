@@ -112,3 +112,8 @@ option{
 input:focus,select:focus{
     outline: none;
 }
+@media (max-width:870px){
+    .volver{
+            bottom: 25px;;
+    }
+}

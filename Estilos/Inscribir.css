@@ -96,9 +96,14 @@ table{
 }
 @media (max-width:870px){
     .volver{
-        top: 139px;
+            bottom: 25px;;
     }
 }
 input:focus,select:focus{
     outline: none;
+}
+@media (max-width:870px){
+    .volver{
+            bottom: 25px;;
+    }
 }
