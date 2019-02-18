@@ -51,7 +51,7 @@ foreach ($listaAsignaturas as $asignatura) {
 if (isset($_POST['btnBuscar'])) {
     $cod_asig = $_POST['selectAsignaturas'];
     $listaAlumnos = $profesor->listarAlumnos($_POST['selectAsignaturas']);
-    echo "<form action='guardarFaltas.php?asignatura=" . urlencode($cod_asig) . "' name='faltas' method='post'>";
+    echo "<form action='guardarFaltas.php?asignatura=" . urlencode($cod_asig) . "' name='faltas' id='faltas' method='post'>";
     echo "<table>";
     echo "<tr><td>APELLIDOS</td><td>NOMBRE</td><td>DNI ALUMNO</td><td>FALTA</td></tr>";
     foreach ($listaAlumnos as $alumno) {
