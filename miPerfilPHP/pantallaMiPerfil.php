@@ -92,10 +92,14 @@ if($esProfe[0]['profe'] != 0) {
     </form>
     <?php
         if (isset($_POST['btnEditar'])) {
-            if($esProfe[0]['profe'] != 0) {
-                $profeEditado = $perfil->editarProfe($_POST['email'], $_POST['tlf'], $_POST['direccion'], $dni);
+            if(empty($_POST['email']) || empty($_POST['tlf']) || empty($_POST['direccion'])) {
+                echo "<p class='error'>No puede haber ningun campo vacio</p>";
             } else {
-                $alumnoEditado = $perfil->editarAlumno($_POST['email'], $_POST['tlf'], $_POST['direccion'], $dni);
+                if($esProfe[0]['profe'] != 0) {
+                    $profeEditado = $perfil->editarProfe($_POST['email'], $_POST['tlf'], $_POST['direccion'], $dni);
+                } else {
+                    $alumnoEditado = $perfil->editarAlumno($_POST['email'], $_POST['tlf'], $_POST['direccion'], $dni);
+                }
             }
         }
     ?>
