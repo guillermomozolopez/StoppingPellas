@@ -17,9 +17,9 @@
         public function insertarUser($dni, $contr, $fecha) {
             $sql = "INSERT INTO USUARIO (DNI, CONTRASEÑA, FECHAREGISTRO) VALUES (\"$dni\", \"$contr\", \"$fecha\")";
             if ($this->conexion_db->query($sql) === TRUE) {
-                echo "USUARIO AGREGADO";
+                echo "<p class='correcto'>USUARIO AGREGADO</p>";
             } else {
-                echo "Error: " . $sql . "<br>" . $conexion_db->error;
+                echo "<p class='error'>Error: " . $sql . "</p>" . "<p class='error'>".$conexion_db->error."</p>";
             }
         }
 
@@ -40,18 +40,18 @@
         public function registrarProfe($dni, $nombre,  $ape1, $ape2, $fechaNac, $email, $tlf, $direccion) {
             $sql = "INSERT INTO PROFESORES (DNI, NOMBRE, APELLIDO1, APELLIDO2, FECHANAC, EMAIL, TELEFONO, DIRECCION) VALUES (\"$dni\", \"$nombre\", \"$ape1\", \"$ape2\", \"$fechaNac\", \"$email\", \"$tlf\", \"$direccion\")";
             if ($this->conexion_db->query($sql) === TRUE) {
-                echo "PROFESOR INSCRITO";
+                echo "<p class='correcto'>PROFESOR INSCRITO</p>";
             } else {
-                echo "Error: " . $sql . "<br>" . $conexion_db->error;
+                echo "<p class='error'>Error: " . $sql . "</p>" . "<p class='error'>".$conexion_db->error."</p>";
             }
         }
 
         public function registrarAlumno($dni, $nombre,  $ape1, $ape2, $fechaNac, $email, $tlf, $direccion) {
             $sql = "INSERT INTO ALUMNOS (DNI, NOMBRE, APELLIDO1, APELLIDO2, FECHANAC, EMAIL, TELEFONO, DIRECCION) VALUES (\"$dni\", \"$nombre\", \"$ape1\", \"$ape2\", \"$fechaNac\", \"$email\", \"$tlf\", \"$direccion\")";
             if ($this->conexion_db->query($sql) === TRUE) {
-                echo "ALUMNO INSCRITO";
+                echo "<p class='correcto'>ALUMNO INSCRITO</p>";
             } else {
-                echo "Error: " . $sql . "<br>" . $conexion_db->error;
+                echo "<p class='error'>Error: " . $sql . "</p>" . "<p class='error'>".$conexion_db->error."</p>";
             }
         }
 
@@ -79,9 +79,9 @@
         public function matricularAlumno($dni, $cod_asig) {
             $sql = "INSERT INTO ALUMNOS_ASIGNATURAS (COD_ASIGNATURA, DNI_ALUMNO) VALUES (".$cod_asig.", \"$dni\")";
             if ($this->conexion_db->query($sql) === TRUE) {
-                echo "ALUMNO MATRICULADO";
+                echo "<p class='correcto'>ALUMNO MATRICULADO</p>";
             } else {
-                echo "Error: " . $sql . "<br>" . $conexion_db->error;
+                echo "<p class='error'>Error: " . $sql . "</p>" . "<p class='correcto'>".$conexion_db->error."</p>";
             }
         }
 

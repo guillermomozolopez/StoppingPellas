@@ -31,18 +31,18 @@
         public function editarProfe($email, $tlf,  $direccion, $dni) {
             $sql = "UPDATE PROFESORES SET EMAIL = \"$email\", TELEFONO = ".$tlf.", DIRECCION = \"$direccion\" WHERE DNI = \"$dni\"";
             if ($this->conexion_db->query($sql) === TRUE) {
-                echo "PROFESOR EDITADO";
+                echo "<p class='correcto'>PROFESOR EDITADO</p>";
             } else {
-                echo "Error: " . $sql . "<br>" . $conexion_db->error;
+                echo "<p class='error'>Error: " . $sql . "</p>" . "<p class='error'>".$conexion_db->error."</p>";
             }
         }
 
         public function editarAlumno($email, $tlf,  $direccion, $dni) {
             $sql = "UPDATE ALUMNOS SET EMAIL = \"$email\", TELEFONO = ".$tlf.", DIRECCION = \"$direccion\" WHERE DNI = \"$dni\"";
             if ($this->conexion_db->query($sql) === TRUE) {
-                echo "ALUMNO EDITADO";
+                echo "<p class='correcto'>ALUMNO EDITADO</p>";
             } else {
-                echo "Error: " . $sql . "<br>" . $conexion_db->error;
+                echo "<p class='error'>Error: " . $sql . "</p>" . "<p class='error'>".$conexion_db->error."</p>";
             }
         }
 

@@ -39,7 +39,7 @@
             if($estaMat[0]['matriculado'] == 0) {
                 $alumnoMatriculado = $admin->matricularAlumno($_POST['alumnos'], $_POST['asignaturas']);
             } else {
-                echo "Este alumno ya esta matriculado en esa asignatura";
+                echo "<p class='error'>Este alumno ya esta matriculado en esa asignatura</p>";
             }
         }
     ?>

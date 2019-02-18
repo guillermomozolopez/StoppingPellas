@@ -9,6 +9,16 @@ html,body{
  color: white;
 
 }
+.error{
+    text-align: center;
+    color: #bd3428;
+    text-shadow: 4px 2px 1px black;
+}
+.correcto{
+    text-align: center;
+    color: #18b80a;
+    text-shadow: 4px 2px 1px black;
+}
 html,body,input{
     font-family: tiza;
 }

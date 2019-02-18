@@ -51,13 +51,13 @@
             $cont_usuario = $_POST['pass_usuario'];
             $existeDNI = $admin->comprobarDNI($dni_usuario);
             if ($_POST['dni_usuario'] == "" || $_POST['pass_usuario'] == "" || $_POST['conf_pass_usuario'] == "") {
-                echo "No puede haber campos vacíos";
+                echo "<p class='error'>No puede haber campos vacíos</p>";
             } else {
                 if($existeDNI[0]['existe'] != 0) {
-                    echo "Ese usuario ya está registrado";
+                    echo "<p class='error'>Ese usuario ya está registrado</p>";
                 } else {
                     if ($_POST['pass_usuario'] != $_POST['conf_pass_usuario']) {
-                        echo "La contraseña no coincide";
+                        echo "<p class='error'>La contraseña no coincide</p>";
                     } else {
                         $fecha = date("Y-m-d");
                         $usuario = $admin->insertarUser($dni_usuario, $cont_usuario, $fecha);

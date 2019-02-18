@@ -68,16 +68,16 @@ require "../Login/headerLogin.php";
             $esProfe = $admin->comprobarProfe($_POST['dniPro']);
             $esAlumno = $admin->comprobarAlumno($_POST['dniPro']);
             if($_POST['dniPro'] == "" || $_POST['nombrePro'] == "" || $_POST['ape1Pro'] == "" || $_POST['ape2Pro'] == "" || $_POST['fechaNacPro'] == "" || $_POST['emailPro'] == "" || $_POST['tlfPro'] == "" || $_POST['dirPro'] == "" ){
-                echo "No puede haber campos vacíos";
+                echo "<p class='error'>No puede haber campos vacíos</p>";
             } else {
                 if($existeDNI[0]['existe'] == 0) {
-                    echo "Ese usuario no está registrado";
+                    echo "<p class='error'>Ese usuario no está registrado</p>";
                 } else {
                     if($esProfe[0]['profe']) {
-                        echo "Ese usuario ya está inscrito como profesor";
+                        echo "<p class='error'>Ese usuario ya está inscrito como profesor</p>";
                     } else {
                         if ($esAlumno[0]['alumno']) {
-                            echo "Ese usuario ya está inscrito como alumno";
+                            echo "<p class='error'>Ese usuario ya está inscrito como alumno</p>";
                         } else {
                             $profesor = $admin->registrarProfe($_POST['dniPro'], $_POST['nombrePro'], $_POST['ape1Pro'], $_POST['ape2Pro'], $_POST['fechaNacPro'], $_POST['emailPro'], $_POST['tlfPro'], $_POST['dirPro']);
                         }

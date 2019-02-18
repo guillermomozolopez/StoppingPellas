@@ -31,9 +31,9 @@
         public function ponerFalta($cod_asignatura, $dni_alumno, $dni_profesor, $fecha) {
             $sql = "INSERT INTO FALTAS (COD_ASIGNATURA, DNI_ALUMNO, DNI_PROFESOR, FECHA) VALUES (".$cod_asignatura.", '".$dni_alumno."', '".$dni_profesor."',  '".$fecha."')";
             if ($this->conexion_db->query($sql) === TRUE) {
-                echo "Faltas guardadas";
+                echo "<p class='correcto'>Faltas guardadas";
             } else {
-                echo "Error: " . $sql . "<br>" . $conexion_db->error;
+                echo "<p class='error'>Error: " . $sql . "</p>" . "<p class='error'>".$conexion_db->error."</p>";
             }
         }
 
