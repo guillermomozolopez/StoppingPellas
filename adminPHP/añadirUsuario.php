@@ -16,6 +16,7 @@
     <title>Añadir un nuevo usuario</title>
 </head>
 <body>
+  <a href="../adminPHP/pantallaAdmin.php" class="volver"><i class="fas fa-arrow-circle-left"></i></a> 
     <div class="fondo"></div>
 
     <?php

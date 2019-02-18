@@ -105,3 +105,11 @@ input[type="submit"]{
     margin-left: 5px;
     margin-top: 10px;
 }
+.volver{
+    position: fixed;
+    color: white;
+    font-size: 50px;
+    top: 35px;
+    left: 54px;
+}
+/*<a href="../adminPHP/pantallaAdmin.php" class="volver"><i class="fas fa-arrow-circle-left"></i></a>*/
