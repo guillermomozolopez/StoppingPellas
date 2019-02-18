@@ -46,11 +46,15 @@ if (isset($_POST['send'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../Estilos/estiloReseteo.css">
     <title>Document</title>
 </head>
 <body>
-
+<a href="login.php"><i class="fas fa-arrow-circle-left"></i></a>
+<div class="fondo"></div>
+    <div id="logo"></div>
     <form action="reseteoContraseña.php" method="POST">
+    <h2>Nueva contraseña</h2>
     <?php
 //echo $_SESSION['dni'];
 if (!empty($_GET['error'])): ?>
@@ -58,9 +62,11 @@ if (!empty($_GET['error'])): ?>
     <p><?=$_GET['error']?></p>
     </div>
     <?php endif;?>
-    <p><label>Nueva contraseña</label><input type="password" name="pass" id="pass"></p>
-    <p><label>Confirmar contraseña</label><input type="password" name="repass" id="pass"></p>
-    <p><input type="submit" name="send" value="Confirmar"></p>
+    <input name="pass" type="password" id="pass" placeholder="Introduzca nueva contraseña">
+    <!-- <p><label>Nueva contraseña</label><input type="password" name="pass" id="pass"></p> -->
+    <input name="repass" type="password" id="repass" placeholder="Confirmar nueva contraseña">
+    <!-- <p><label>Confirmar contraseña</label><input type="password" name="repass" id="pass"></p> -->
+    <input type="submit" name="send" value="Confirmar"></p>
     </form>
     <?php
 // echo $_GET['email'];
