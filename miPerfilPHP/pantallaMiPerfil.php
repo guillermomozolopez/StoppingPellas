@@ -6,7 +6,7 @@
   
     $dni =$_COOKIE['dni'];
 
-    
+    error_reporting(E_ERROR | E_PARSE);
 ?>
 
 <!DOCTYPE html>

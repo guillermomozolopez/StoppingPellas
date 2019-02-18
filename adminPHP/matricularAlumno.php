@@ -23,6 +23,7 @@
 require "../Login/headerLogin.php";
 ?>
 <a href="../adminPHP/pantallaAdmin.php" class="volver"><i class="fas fa-arrow-circle-left"></i></a>
+    <h1>Matricular alumno en una asignatura</h1>
     <form action="" method="post">
         <select name="alumnos" id="alumnos">
         <?php

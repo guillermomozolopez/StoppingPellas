@@ -6,6 +6,7 @@ $profesor = new Profesor();
 
 $listaAsignaturas = $profesor->listarAsignaturas($_SESSION['user']);
 
+error_reporting(E_ERROR | E_PARSE);
 ?>
 
 <!DOCTYPE html>

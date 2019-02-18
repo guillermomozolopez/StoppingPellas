@@ -7,13 +7,11 @@ html,body,input{
     font-family: tiza;
     color:white;
 }
-
 body{
     display: grid;
     grid-template-columns: 1fr max-content 1fr;
-    grid-template-rows: min-content min-content;
+    grid-template-rows: min-content min-content min-content;
 }
-
 .fondo{
     background-image: url(../img/Chalk-board-wallpaper-hd.jpg);
     background-repeat: no-repeat;
@@ -66,8 +64,12 @@ select, input{
     justify-content: center;
     align-items: center;
 }
-form{
+h1 {
     grid-row: 2/3;
+    grid-column: 2/3
+}
+form{
+    grid-row: 3/4;
     grid-column: 2/3;
     display: flex;
     flex-wrap: wrap;
@@ -95,7 +97,7 @@ input[type="submit"]{
     text-shadow: 4px 2px 1px black;
 }
 .error,.correcto{
-    grid-row: 3/4;
+    grid-row: 4/5;
     grid-column: 2/3;
     white-space: nowrap;
 }

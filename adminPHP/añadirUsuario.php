@@ -2,6 +2,8 @@
     require "./claseAdmin.php";
 
     $admin = new Admin();
+
+    error_reporting(E_ERROR | E_PARSE);
     
 ?>
 
