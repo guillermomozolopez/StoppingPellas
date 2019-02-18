@@ -89,6 +89,9 @@ input:disabled {
     top: 35px;
     left: 54px;
 }
+#header > div:nth-child(2) > a:nth-child(1){
+    display: none;
+}
 @media (max-width:870px){
     .volver{
         top: 139px;
