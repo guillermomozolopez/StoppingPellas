@@ -28,52 +28,56 @@ error_reporting(E_ERROR | E_PARSE);
 </head>
 
 <body>
-<div class="fondo"></div>
-<?php
-// header
-require "../Login/headerLogin.php";
-?>
-<div class="tablas">
+    <div class="fondo"></div>
     <?php
-        $nombre = $alumno->nombre($_SESSION['user']);
-        echo "<h1>".$nombre[0]['Nombre']." ".$nombre[0]['Apellido1']." ".$nombre[0]['Apellido2']."</h1>";
+        require "../Login/headerLogin.php";     //Incluimos el header
     ?>
-    <div class="forms">
-    <form action='pantallaAlumnos.php' method='post'>
-        <select name="selectAsignaturas">
-            <?php
-foreach ($listaAsignaturas as $asignatura) {
-    echo "<option value=" . $asignatura['cod_asignatura'] . ">" . $asignatura['nombre'];
-}
-?>
-        </select>
-        <input type="submit" name="btnMostrar" value="Mostrar Faltas">
-    </form>
-    <form action='pantallaAlumnos.php' method='post'>
-        <input type="submit" name="btnMostrarTodas" value="Mostrar Todas Faltas">    
-    </form>
-    </div>
-    <?php
-        if(isset($_POST['btnMostrar'])) {
-            $listaFaltas = $alumno->listarFaltas($_SESSION['user'], $_POST['selectAsignaturas']);
-            echo "<table>";
-            echo "<tr><td>ASIGNATURA</td><td>FECHA</td></tr>";
-            foreach ($listaFaltas as $falta) {
-                echo "<tr><td>".$falta['asignatura']."</td><td>".$falta['fecha']."</td></tr>";
+    <div class="tablas">
+        <?php
+            $nombre = $alumno->nombre($_SESSION['user']);   //Buscamos el nombre del DNI de la sesion
+            echo "<h1>".$nombre[0]['Nombre']." ".$nombre[0]['Apellido1']." ".$nombre[0]['Apellido2']."</h1>";
+        ?>
+        <div class="forms">
+        <form action='pantallaAlumnos.php' method='post'>             
+            <select name="selectAsignaturas">
+                <?php
+                    // Añadimos un option por cada asignatura
+                    foreach ($listaAsignaturas as $asignatura) {
+                    echo "<option value=" . $asignatura['cod_asignatura'] . ">" . $asignatura['nombre'];
+                    }
+                ?>
+            </select>
+            <input type="submit" name="btnMostrar" value="Mostrar Faltas">
+        </form>
+        <form action='pantallaAlumnos.php' method='post'>
+            <input type="submit" name="btnMostrarTodas" value="Mostrar Todas Faltas">    
+        </form>
+        </div>
+        <?php
+            if(isset($_POST['btnMostrar'])) {
+                // Listamos las faltas de la asignatura seleccionada y el DNI de la sesion
+                $listaFaltas = $alumno->listarFaltas($_SESSION['user'], $_POST['selectAsignaturas']);
+                // Imprimimos las faltas en una tabla
+                echo "<table>";
+                echo "<tr><td>ASIGNATURA</td><td>FECHA</td></tr>";
+                foreach ($listaFaltas as $falta) {
+                    echo "<tr><td>".$falta['asignatura']."</td><td>".$falta['fecha']."</td></tr>";
+                }
+                echo "</table>";
             }
-            echo "</table>";
-        }
 
-        if(isset($_POST['btnMostrarTodas'])) {
-            $listaTodas = $alumno->listarTodas($_SESSION['user']);
-            echo "<table>";
-            echo "<tr><td>ASIGNATURA</td><td>FALTAS</td></tr>";
-            foreach ($listaTodas as $falta) {
-                echo "<tr><td>".$falta['asignatura']."</td><td>".$falta['faltas']."</td></tr>";
+            if(isset($_POST['btnMostrarTodas'])) {
+                // Listamos cuantas faltas de cada asignatura tiene el DNI de la sesion
+                $listaTodas = $alumno->listarTodas($_SESSION['user']);
+                // Imprimimos las faltas en una tabla
+                echo "<table>";
+                echo "<tr><td>ASIGNATURA</td><td>FALTAS</td></tr>";
+                foreach ($listaTodas as $falta) {
+                    echo "<tr><td>".$falta['asignatura']."</td><td>".$falta['faltas']."</td></tr>";
+                }
+                echo "</table>";
             }
-            echo "</table>";
-        }
-        
+            
     ?>
 </div>
 </body>
