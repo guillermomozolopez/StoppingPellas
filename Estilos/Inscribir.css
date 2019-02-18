@@ -3,24 +3,23 @@
     font-family: tiza;
     src: url(../fuentes/tiza.ttf)
 }
-html,body{
- margin: 0;
- height: 100%;
- color: white;
-
-}
 html,body,input{
+    margin: 0;
     font-family: tiza;
+    color:white;
+    background: transparent;
+}
+input{
+    border: 2px white solid;
+    padding: 5px;
+    border-radius: 5px;
+    min-width: -webkit-fill-available;
+}
+input[type='submit']{
+    margin-top: 10px;
 }
 h1{
     margin: 0px;
-}
-#logo{
-    flex: 0 0 50%;
-    background-image: url(../img/stoppingpellas-logoAlargado.png);
-    background-repeat: no-repeat;
-    height: 136px;
-    background-position-x: 50%;
 }
 .fondo{
     background-image: url(../img/Chalk-board-wallpaper-hd.jpg);
@@ -32,6 +31,13 @@ h1{
     width: 100%;
     height: 100%;
     z-index: -1;
+}
+#logo{
+    flex: 0 0 50%;
+    background-image: url(../img/stoppingpellas-logoAlargado.png);
+    background-repeat: no-repeat;
+    height: 136px;
+    background-position-x: 50%;
 }
 #header{
     display: flex;
@@ -48,37 +54,23 @@ h1{
     font-size: 35px;
     color: white;
 }
-.contenido{
+form{
     display: grid;
-    grid-template-columns: 1fr min-content 1fr;
     grid-template-rows: min-content min-content;
+    grid-template-columns: 1fr min-content 1fr;
     grid-row-gap: 20px;
 }
-.contenido>h1{
+form>h1{
     grid-row: 1/2;
     grid-column: 2/3;
-    text-align: center;
+    white-space: nowrap;
 }
-.contenido>form{
-    grid-row: 2/2;
+table{
+    grid-row: 2/3;
     grid-column: 2/3;
 }
-body > div.contenido > form > table > tbody > tr:nth-child(9) > td:nth-child(2) > input[type="submit"]{
-    margin-top:20px;
-    background: transparent;
-    color:white;
-    border: 2px white solid;
-    border-radius: 5px;
-    padding: 5px;
-}
-input[type="text"]{
-background: transparent;
-color:white;
-border: 2px white solid;
-border-radius: 5px;
-padding: 5px;
-}
-input:disabled {
-    background-color: rgba(235, 235, 228, 0.5);
-    color: black;
+.error{
+    text-align: center;
+    color: #bd3428;
+    text-shadow: 4px 2px 1px black;
 }

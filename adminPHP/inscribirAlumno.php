@@ -11,9 +11,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../Estilos/Inscribir.css">
     <title>Inscribir usuario como profesor</title>
 </head>
 <body>  
+<div class="fondo"></div>
+<?php
+require "../Login/headerLogin.php";
+?>
     <form action="" method="post">
         <h1>Registrar usuario como alumno</h1>
         <table>
@@ -61,16 +67,16 @@
             $esProfe = $admin->comprobarProfe($_POST['dniAlu']);
             $esAlumno = $admin->comprobarAlumno($_POST['dniAlu']);
             if($_POST['dniAlu'] == "" || $_POST['nombreAlu'] == "" || $_POST['ape1Alu'] == "" || $_POST['ape2Alu'] == "" || $_POST['fechaNacAlu'] == "" || $_POST['emailAlu'] == "" || $_POST['tlfAlu'] == "" || $_POST['dirAlu'] == "" ){
-                echo "No puede haber campos vacíos";
+                echo "<p class='error'>No puede haber campos vacíos</p>";
             } else {
                 if($existeDNI[0]['existe'] == 0) {
-                    echo "Ese usuario no está registrado";
+                    echo "<p class='error'>Ese usuario no está registrado</p>";
                 } else {
                     if($esProfe[0]['alumno']) {
-                        echo "Ese usuario ya está inscrito como profesor";
+                        echo "<p class='error'>Ese usuario ya está inscrito como profesor</p>";
                     } else {
                         if ($esAlumno[0]['alumno']) {
-                            echo "Ese usuario ya está inscrito como alumno";
+                            echo "<p class='error'>Ese usuario ya está inscrito como alumno</p>";
                         } else {
                             $alumno = $admin->registrarAlumno($_POST['dniAlu'], $_POST['nombreAlu'], $_POST['ape1Alu'], $_POST['ape2Alu'], $_POST['fechaNacAlu'], $_POST['emailAlu'], $_POST['tlfAlu'], $_POST['dirAlu']);
                         }

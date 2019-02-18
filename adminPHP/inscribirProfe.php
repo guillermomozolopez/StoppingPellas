@@ -11,9 +11,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../Estilos/Inscribir.css">
     <title>Inscribir usuario como profesor</title>
 </head>
 <body>
+<div class="fondo"></div>
+<?php
+require "../Login/headerLogin.php";
+?>
 <form action="" method="post">
         <h1>Registrar usuario como profesor</h1>
         <table>
