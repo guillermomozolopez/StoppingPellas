@@ -17,6 +17,11 @@ input{
 }
 input[type='submit']{
     margin-top: 10px;
+    transition: all 0.2s;
+}
+input[type="submit"]:hover {
+    background: white;
+    color: #4c5156;
 }
 h1{
     margin: 0px;

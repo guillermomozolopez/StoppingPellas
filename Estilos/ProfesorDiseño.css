@@ -60,7 +60,8 @@ html,body{
 }
 
 .contenido > #faltas{
-    grid-column: 2/3;
+    grid-column: 1/4;
+    margin: 0 10%;
     text-align: center;
 }
 
@@ -72,6 +73,12 @@ input[type="submit"]{
     font-family: tiza;
     font-size: 15px;
     padding: 5px;
+    transition: all 0.2s;
+}
+
+input[type="submit"]:hover {
+    background: white;
+    color: #4c5156;
 }
 
 select{

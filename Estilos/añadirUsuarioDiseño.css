@@ -104,4 +104,9 @@ input[type="submit"]{
     padding: 5px 3px;
     margin-left: 5px;
     margin-top: 10px;
+    transition: all 0.2s;
+}
+input[type="submit"]:hover {
+    background: white;
+    color: #4c5156;
 }

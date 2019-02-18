@@ -73,6 +73,12 @@ input[type="submit"]{
     font-family: tiza;
     font-size: 15px;
     padding: 10px 3px;
+    transition: all 0.2s;
+}
+
+input[type="submit"]:hover {
+    background: white;
+    color: #4c5156;
 }
 
 @media (max-width:600px){
