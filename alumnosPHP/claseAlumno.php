@@ -27,6 +27,13 @@
             $listaTodas = $resultado->fetch_all(MYSQLI_ASSOC);
             return $listaTodas;
         }
+
+        public function nombre($dni) {
+            $sql = "SELECT * FROM ALUMNOS WHERE DNI = \"$dni\"";
+            $resultado = $this->conexion_db->query($sql);
+            $nombre = $resultado->fetch_all(MYSQLI_ASSOC);
+            return $nombre;
+        }
     }
 
 ?>

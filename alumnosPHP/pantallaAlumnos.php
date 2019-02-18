@@ -33,7 +33,10 @@ $listaAsignaturas = $alumno->listarAsignaturas($_SESSION['user']);
 require "../Login/headerLogin.php";
 ?>
 <div class="tablas">
-    <h1>Gestor de faltas</h1>
+    <?php
+        $nombre = $alumno->nombre($_SESSION['user']);
+        echo "<h1>".$nombre[0]['Nombre']." ".$nombre[0]['Apellido1']." ".$nombre[0]['Apellido2']."</h1>";
+    ?>
     <div class="forms">
     <form action='pantallaAlumnos.php' method='post'>
         <select name="selectAsignaturas">

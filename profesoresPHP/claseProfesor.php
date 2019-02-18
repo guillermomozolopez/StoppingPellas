@@ -28,7 +28,6 @@
                 return $listaAlFaltas;
         }
 
-
         public function ponerFalta($cod_asignatura, $dni_alumno, $dni_profesor, $fecha) {
             $sql = "INSERT INTO FALTAS (COD_ASIGNATURA, DNI_ALUMNO, DNI_PROFESOR, FECHA) VALUES (".$cod_asignatura.", '".$dni_alumno."', '".$dni_profesor."',  '".$fecha."')";
             if ($this->conexion_db->query($sql) === TRUE) {
@@ -36,6 +35,13 @@
             } else {
                 echo "Error: " . $sql . "<br>" . $conexion_db->error;
             }
+        }
+
+        public function nombre($dni) {
+            $sql = "SELECT * FROM PROFESORES WHERE DNI = \"$dni\"";
+            $resultado = $this->conexion_db->query($sql);
+            $nombre = $resultado->fetch_all(MYSQLI_ASSOC);
+            return $nombre;
         }
     }
 

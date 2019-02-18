@@ -19,7 +19,7 @@
 <?php
 require "../Login/headerLogin.php";
 ?>
-    <h1>Menú administrador</h1>
+    <h1>Administrador</h1>
     <form action="añadirUsuario.php">
         <input type="submit" value="Añadir usuario">
     </form>
