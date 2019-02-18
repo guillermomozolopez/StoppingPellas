@@ -109,3 +109,6 @@ option{
     top: 35px;
     left: 54px;
 }
+input:focus{
+    outline: none;
+}

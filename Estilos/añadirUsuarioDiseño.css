@@ -136,4 +136,6 @@ input[type="submit"]:hover {
         top: 139px;
     }
 }
-/*<a href="../adminPHP/pantallaAdmin.php" class="volver"><i class="fas fa-arrow-circle-left"></i></a>*/
+input:focus{
+    outline: none;
+}

@@ -97,3 +97,6 @@ input[type="submit"]:hover {
         font-size: 10px;
     }
 }
+input:focus{
+    outline: none;
+}

@@ -99,3 +99,6 @@ table{
         top: 139px;
     }
 }
+input:focus{
+    outline: none;
+}
