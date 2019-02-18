@@ -8,9 +8,7 @@ html,body{
     padding: 0;
     border:0;
     height: 100%;
-    background-image: url(../img/Chalk-board-wallpaper-hd.jpg);
-    background-repeat: no-repeat;
-    background-size: 100vw 100%;
+
 }
 body{
     display: grid;

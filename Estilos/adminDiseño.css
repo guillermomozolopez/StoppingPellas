@@ -74,7 +74,7 @@ html,body{
 }
 
 input[type="submit"]{
-    width: 25%;
+    min-width: 40%;
     background: transparent;
     border: white 2px solid;
     border-radius: 5px;
