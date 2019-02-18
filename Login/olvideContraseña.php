@@ -23,6 +23,8 @@ if (isset($_POST['enviar'])) {
         $error = "Email Incorrecto";
     }
 } 
+
+error_reporting(E_ERROR | E_PARSE);
 ?>
 <!DOCTYPE html>
 <html lang="es">

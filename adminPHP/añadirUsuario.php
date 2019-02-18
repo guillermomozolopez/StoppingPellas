@@ -2,6 +2,8 @@
     require "./claseAdmin.php";
 
     $admin = new Admin();
+
+    error_reporting(E_ERROR | E_PARSE);
     
 ?>
 
@@ -16,11 +18,11 @@
     <title>Añadir un nuevo usuario</title>
 </head>
 <body>
-  <a href="../adminPHP/pantallaAdmin.php" class="volver"><i class="fas fa-arrow-circle-left"></i></a> 
+    <a href="../adminPHP/pantallaAdmin.php" class="volver"><i class="fas fa-arrow-circle-left"></i></a> 
     <div class="fondo"></div>
 
     <?php
-        require "../Login/headerLogin.php";
+        require "../Login/headerLogin.php";     //Incluimos el header
     ?>   
    
     <div class="contenido">
@@ -46,21 +48,23 @@
         </table>
     </form>
     <?php
-        if(isset($_POST['añadirUser'])) {
-            $dni_usuario = $_POST['dni_usuario'];
+        if(isset($_POST['añadirUser'])) {   
+            // Capturamos las variables que vamos a necesitar
+            $dni_usuario = $_POST['dni_usuario'];   
             $cont_usuario = $_POST['pass_usuario'];
+            // Comprobamos que el dni no esta ya registrado
             $existeDNI = $admin->comprobarDNI($dni_usuario);
-            if ($_POST['dni_usuario'] == "" || $_POST['pass_usuario'] == "" || $_POST['conf_pass_usuario'] == "") {
+            if ($_POST['dni_usuario'] == "" || $_POST['pass_usuario'] == "" || $_POST['conf_pass_usuario'] == "") {     // Comprobamos si hay algún campo vacío
                 echo "<p class='error'>No puede haber campos vacíos</p>";
             } else {
-                if($existeDNI[0]['existe'] != 0) {
+                if($existeDNI[0]['existe'] != 0) {      // Si existe el dni
                     echo "<p class='error'>Ese usuario ya está registrado</p>";
                 } else {
-                    if ($_POST['pass_usuario'] != $_POST['conf_pass_usuario']) {
+                    if ($_POST['pass_usuario'] != $_POST['conf_pass_usuario']) {    // Validamos que las dos contraseñas coinciden
                         echo "<p class='error'>La contraseña no coincide</p>";
                     } else {
                         $fecha = date("Y-m-d");
-                        $usuario = $admin->insertarUser($dni_usuario, $cont_usuario, $fecha);
+                        $usuario = $admin->insertarUser($dni_usuario, $cont_usuario, $fecha);      // Si se cumplen los filtro anteriores insertamos el usuario
                     }
                 }
             }

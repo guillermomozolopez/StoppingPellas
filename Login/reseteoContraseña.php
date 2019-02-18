@@ -2,6 +2,8 @@
 session_start();
 $error = "";
 
+error_reporting(E_ERROR | E_PARSE);
+
 if (isset($_POST['send'])) {
     require "./clase_olvidar.php";
     $olvidar = new Olvidar();

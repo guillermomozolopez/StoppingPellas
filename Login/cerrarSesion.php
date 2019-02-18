@@ -4,5 +4,4 @@ session_destroy();
 echo 'Cerrasndo sesión...';
 unset($_COOKIE['dni']);
 echo '<script> window.location="./login.php"; </script>';
-
 ?>
