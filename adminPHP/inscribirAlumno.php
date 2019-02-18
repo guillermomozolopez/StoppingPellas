@@ -83,6 +83,26 @@ require "../Login/headerLogin.php";     //Incluimos el header
                         } else {
                             // Si cumple todas las validaciones introducimos el alumno
                             $alumno = $admin->registrarAlumno($_POST['dniAlu'], $_POST['nombreAlu'], $_POST['ape1Alu'], $_POST['ape2Alu'], $_POST['fechaNacAlu'], $_POST['emailAlu'], $_POST['tlfAlu'], $_POST['dirAlu']);
+                            $contraseña =$admin->obtenerPass($_POST['dniAlu']);
+                            $asunto = " Bienvenido a StoppingPellas";
+                            $mensaje = "
+                            
+                            Hola ".$_POST['nombreAlu'].",
+                            Bienvenido a la plataforma de asistencia de faltas Stopping Pellas,
+
+                            Esta es tu contraseña de inicio:
+                            --------------------------------------------------------------------
+                            --------------------------------------------------------------------
+                            --------------------------------------------------------------------
+                            -Contraseña: ".$contraseña."
+                            --------------------------------------------------------------------
+                            Desde StoppingPellas le recomendamos cambiar la contraseña
+                            --------------------------------------------------------------------
+                            Un saludo.
+
+                            Pulse aqui para iniciar sesion:
+                            http://localhost/StoppingPellas";
+                            mail($_POST['emailAlu'], $asunto, $mensaje);
                         }
                     }
                 }

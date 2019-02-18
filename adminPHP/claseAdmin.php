@@ -8,7 +8,7 @@
         }
 
         // Comprobamos si el DNI existe en la base de datos
-
+        
         public function comprobarDNI($dni) {
             $sql = "SELECT COUNT(*) AS existe FROM USUARIO WHERE DNI=\"$dni\"";
             $resultado = $this->conexion_db->query($sql);
@@ -103,6 +103,15 @@
             } else {
                 echo "<p class='error'>Error: " . $sql . "</p>" . "<p class='correcto'>".$conexion_db->error."</p>";
             }
+        }
+        
+        //obtener contraseña del dni
+
+        public function obtenerPass($dni){
+            $sql = "SELECT CONTRASEÑA FROM USUARIO WHERE DNI = '$dni'";
+            $resultado = $this->conexion_db->query($sql);
+            $contraseña = $resultado->fetch_all(MYSQLI_ASSOC);
+            return $contraseña[0]['CONTRASEÑA'];
         }
 
     }

@@ -83,6 +83,26 @@
                         } else {
                             // Si cumple las validaciones insertamos el usuario en profesores
                             $profesor = $admin->registrarProfe($_POST['dniPro'], $_POST['nombrePro'], $_POST['ape1Pro'], $_POST['ape2Pro'], $_POST['fechaNacPro'], $_POST['emailPro'], $_POST['tlfPro'], $_POST['dirPro']);
+                            $contraseña =$admin->obtenerPass($_POST['dniPro']);
+                            $asunto = " Bienvenido a StoppingPellas";
+                            $mensaje = "
+                            
+                            Hola ".$_POST['nombrePro'].",
+                            Bienvenido a la plataforma de asistencia de faltas Stopping Pellas,
+
+                            Esta es tu contraseña de inicio:
+                            --------------------------------------------------------------------
+                            --------------------------------------------------------------------
+                            --------------------------------------------------------------------
+                            -Contraseña: ".$contraseña."
+                            --------------------------------------------------------------------
+                            Desde StoppingPellas le recomendamos cambiar la contraseña
+                            --------------------------------------------------------------------
+                            Un saludo.
+
+                            Pulse aqui para iniciar sesion:
+                            http://localhost/StoppingPellas";
+                            mail($_POST['emailPro'], $asunto, $mensaje);
                         }
                     }
                 }
