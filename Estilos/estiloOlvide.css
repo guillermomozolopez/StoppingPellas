@@ -30,9 +30,7 @@ form{
 div, input{
     flex: 0 0 100%;
 }
-body > form > div:nth-child(2){
-    margin-left: 15%;
-}
+
 input[placeholder]{
     font-family: 'Ubuntu', sans-serif !important;
 }
@@ -92,4 +90,11 @@ input[type=submit]:hover{
 }
 h2{
     white-space: nowrap;
+}
+a{
+    color: white;
+    position: fixed;
+    font-size: 49px;
+    top: 18px;
+    left: 18px;
 }

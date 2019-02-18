@@ -25,16 +25,17 @@ if (isset($_POST['enviar'])) {
 } 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../Estilos/estiloOlvide.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
-
+<a href="login.php"><i class="fas fa-arrow-circle-left"></i></a>
 <div class="fondo"></div>
     <div id="logo"></div>
     <form action="./olvideContraseña.php" method="POST">

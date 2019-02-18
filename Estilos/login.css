@@ -63,10 +63,16 @@ form>span{
     flex-direction: row;
     flex: 0 0 100%;
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+span>label{
+    flex: 0 0 100%;
 }
 form>span>a{
     color: white;
     text-decoration: none;
+    flex: 0 0 100%;
+    margin-top: 16px;
 }
 body > form > span > label{
     color:white;
