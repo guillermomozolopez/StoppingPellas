@@ -133,7 +133,8 @@ input[type="submit"]:hover {
 }
 @media (max-width:870px){
     .volver{
-            bottom: 25px;;
+                    bottom: 25px;
+top:initial;
     }
 }
 input:focus,select:focus{
@@ -141,6 +142,7 @@ input:focus,select:focus{
 }
 @media (max-width:870px){
     .volver{
-            bottom: 25px;;
+                    bottom: 25px;
+top:initial;
     }
 }
