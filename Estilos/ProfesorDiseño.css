@@ -23,6 +23,7 @@ html,body{
 }
 #header{
     display: flex;
+    padding-top: 15px;
 }
 #logo{
     flex: 0 0 50%;
@@ -50,10 +51,12 @@ html,body{
 }
 .contenido h1{
     grid-row: 1/2;
-    grid-column: 2/3;
+    grid-column: 1/4;
+    text-align: center;
 }
 .contenido > form{
-    grid-column: 2/3;
+    grid-column: 1/4;
+    text-align: center;
 }
 input[type="submit"]{
     background: transparent;

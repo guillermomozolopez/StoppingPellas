@@ -66,6 +66,7 @@ body > div:nth-child(3) > table > tbody > tr:nth-child(1) > td{
 }
 h1{
     color:white;
+    text-align: center;
 }
 table{
     width: 100%;
