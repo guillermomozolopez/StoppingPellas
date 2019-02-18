@@ -23,13 +23,23 @@
 <div class="fondo"></div>
 <?php
 require "../Login/headerLogin.php";
+$esProfe = $perfil->comprobarProfe($dni);
+if($esProfe[0]['profe'] != 0) {
+    ?>    
+    <a href="../profesoresPHP/pantallaProfesores.php" class="volver"><i class="fas fa-arrow-circle-left"></i></a>
+    <?php
+} else {
+    ?>
+        <a href="../alumnosPHP/pantallaAlumnos.php" class="volver"><i class="fas fa-arrow-circle-left"></i></a>
+    <?php
+}
 ?>
 <div class="contenido">
     <h1>Mi perfil</h1>
 
     <?php 
    
-        $esProfe = $perfil->comprobarProfe($dni);
+        
 
         if($esProfe[0]['profe'] != 0) {
             $info = $perfil->infoPerfilProfe($dni);

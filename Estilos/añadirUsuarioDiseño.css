@@ -110,3 +110,16 @@ input[type="submit"]:hover {
     background: white;
     color: #4c5156;
 }
+.volver{
+    position: fixed;
+    color: white;
+    font-size: 50px;
+    top: 35px;
+    left: 54px;
+}
+@media (max-width:870px){
+    .volver{
+        top: 139px;
+    }
+}
+/*<a href="../adminPHP/pantallaAdmin.php" class="volver"><i class="fas fa-arrow-circle-left"></i></a>*/

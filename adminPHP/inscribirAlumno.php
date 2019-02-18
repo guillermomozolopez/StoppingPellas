@@ -17,6 +17,7 @@
 </head>
 <body>  
 <div class="fondo"></div>
+<a href="../adminPHP/pantallaAdmin.php" class="volver"><i class="fas fa-arrow-circle-left"></i></a>
 <?php
 require "../Login/headerLogin.php";
 ?>

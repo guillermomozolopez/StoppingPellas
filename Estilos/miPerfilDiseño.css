@@ -87,3 +87,18 @@ input:disabled {
     background-color: rgba(235, 235, 228, 0.5);
     color: black;
 }
+.volver{
+    position: fixed;
+    color: white;
+    font-size: 50px;
+    top: 35px;
+    left: 54px;
+}
+#header > div:nth-child(2) > a:nth-child(1){
+    display: none;
+}
+@media (max-width:870px){
+    .volver{
+        top: 139px;
+    }
+}
