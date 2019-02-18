@@ -39,6 +39,7 @@ if (isset($_POST['enviar'])) {
     <div id="logo"></div>
     <form action="./olvideContraseña.php" method="POST">
 <!-- IMPRESION DE LOS POSIBLES MENSAJES DE ERROR -->
+    <h2>Restablecer contraseña</h2>
     <?php
 if (!empty($error)): ?>
     <div class="error" >
@@ -47,7 +48,7 @@ if (!empty($error)): ?>
     <?php endif;?>
     <div>
       
-        <input type="text" name="email">
+        <input type="text" name="email" placeholder="Introduzca su email">
         <input type="submit" value="Enviar correo" name="enviar">
         </form>
     </div>
