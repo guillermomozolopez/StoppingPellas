@@ -57,7 +57,7 @@
                     echo "<tr><td>" . $alumno['Apellido1'] . " " . $alumno['Apellido2'] . "</td><td>" . $alumno['Nombre'] . "</td><td>" . $alumno['dni_alumno'] . "</td><td><input type='checkbox' name='alumnos[]' value='" . $alumno['dni_alumno'] . "'/></td></tr>";
                 }
                 echo "</table>";
-                echo "<input type='submit' name='ponerFaltas' value='Guardar faltas'>"; // Redirige a guardarFaltas.php
+                echo "<input type='submit' name='ponerFaltas' value='Guardar faltas'>"; // Redirige a guardarFaltas
                 echo "</form>";
             }
 
