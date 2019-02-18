@@ -1,1 +1,3 @@
-Aplicacion Web cuya funcion es el control de asistencias escolares tanto para profesores y alumnos
+<html>
+  <h1>Hola</h1>
+</html>
