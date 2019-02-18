@@ -1,5 +1,5 @@
 <?php
-session_start();
+    session_start();
     require "./claseProfesor.php";
 
     $profesor = new Profesor();
@@ -11,8 +11,8 @@ session_start();
         $fechaActual = date("Y-m-d");
         $horaActual = date("H:i:s");
         $fechaActual = date("Y-m-d H:i:s", strtotime($fechaActual . $horaActual));
-        $faltasGuardadas = $profesor->ponerFalta($asig, $alumnosFaltas[$i], $_SESSION['user'],$fechaActual);
+        $faltasGuardadas = $profesor->ponerFalta($asig, $alumnosFaltas[$i], $_SESSION['user'],$fechaActual);    // Insertar una nueva falta
     } 
     
-    header("Location:pantallaProfesores.php");
+    header("Location:pantallaProfesores.php");  // Redirige a la pantalla profesores
 ?>
